@@ -1074,13 +1074,12 @@ video::-webkit-media-controls {
         padding: 20px;
       }
 
-      #android {
+      #kernel-source {
         background-image: url(../images/page-software/android-hero.jpg);
         background-size: 1600px 649px;
         width: 900px;
         height: 400px;
         padding: 20px;
-
       }
 
       .arrow-left {
@@ -1159,35 +1158,19 @@ video::-webkit-media-controls {
     #carousel-devices {
       @extend #carousel-top;
       background-image: none;
-      height: 522px;
+      height: 550px;
       margin-bottom:10px;
-      width:620px;
-
-        .carousel-images-holder {
-
-          position: absolute;
-          width: 492px;
-          height: 361px;
-          top: 21px;
-          left: 21px;
-
-          overflow: hidden;
-
-          ul {
-
-            position: absolute;
-            list-style: none;
-
-            li {
-              float:left;
-            }
-
-            li img {
-              width:492px;
-              height:361px;
-            }
-          }
+      width:960px;
+        .carousel-item-holder {
+          width: 430px;
+          float:left;
         }
+
+        #code {
+          width: 530px;
+        }
+
+       
     }
 
     #carousel-devices-text {
@@ -1445,128 +1428,6 @@ video::-webkit-media-controls {
 
     }
 
-    .email-signup {
-      display:none;
-      position: absolute;
-      top:75px;
-      right:115px;
-
-      .cover {
-        visibility: hidden;
-        position: absolute;
-        top: -5px;
-        right: -5px;
-        width: 193px;
-        height: 99px;
-        background: rgba(0, 0, 0, 0.8);
-        background-image: url(../images/footer/loading-spinner.gif);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 25px 25px;
-        z-index:1;
-      }
-
-      .thank-you {
-        visibility: hidden;
-        position: absolute;
-        top: 2px;
-        left: 113px;
-        width: 183px;
-        @include GothamBold;
-        font-style: normal;
-        color: $transparent-white;
-        font-size: 21px;
-        text-align: left;
-        background: none;
-      }
-
-      .text {
-        float:right;
-        @include GothamLight;
-        font-size: 10px;
-        color:$transparent-white;
-        text-align: right;
-        margin-right:10px;
-        padding-top: 0px;
-        line-height: 15px;
-      }
-      .email-text {
-        float:right;
-        width:183px;
-        height:27px;
-        background: #4a4a4a;
-        color:#ababab;
-        border:none;
-        padding-left:10px;
-        border:0px;
-        outline:0px;
-        box-sizing: border-box;
-      }
-      .country-dropdown {
-        visibility: hidden;
-        position: absolute;
-        right: 0px;
-        top: 30px;
-        width:183px;
-        height:27px;
-        background: #4a4a4a;
-        color:#ababab;
-        border:none;
-        padding-left:10px;
-        border:0px;
-        outline:0px;
-        -webkit-appearance: none;
-        -webkit-border-radius: 0px;
-        background-image: url(../images/footer/dropdown-menu-arrow.png);
-        background-size: 9px 11px;
-        background-repeat: no-repeat;
-        background-position:168px 8px;
-      }
-
-      .submit-btn {
-        visibility: hidden;
-        position: absolute;
-        top:60px;
-        right:0px;
-        width:183px;
-        height:29px;
-        border:2px solid $light-blue;
-        cursor: pointer;
-        background:none;
-        @include GothamBold;
-        color:$main-nav-btn-color;
-        font-size:14px;
-        text-align: center;
-        @include transition(color, 200ms, ease-out, 0);
-
-        &:hover {
-          color:$light-blue;
-        }
-
-        p {
-          @include GothamBold;
-          color:$main-nav-btn-color;
-          font-size:14px;
-          text-align: center;
-          margin-top:6px;
-          @include transition(all, 200ms, ease-out, 0);
-        }
-      }
-
-      .errorMessage {
-        position: absolute;
-        top:100px;
-        right:0px;
-        width:183px;
-        @include GothamBook;
-        color:$main-nav-btn-color;
-        font-size:12px;
-        text-align: center;
-      }
-
-      .errorBorder {
-        border:1px dotted $light-blue;
-      }
-    }
+   
   }
 }
