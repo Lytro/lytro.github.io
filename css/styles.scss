@@ -112,7 +112,7 @@ $navBreakpoint: 1100px;
 
 html {
 	overflow:hidden;
-    background-color: #000000;
+  background-color: #000000;
 }
 
 body {
@@ -120,8 +120,10 @@ body {
   background-color: #000000;
 }
 
-
-
+a {
+  text-decoration:none;
+  color: #53bffd;  
+}
 
 /* RESIZE WINDOW MESSAGE */
 #resize-window-message {
@@ -1062,6 +1064,10 @@ video::-webkit-media-controls {
       margin-top:45px;
       width:1024px;
       height:600px;
+
+      a {
+        color: #53bffd;
+      }
       
       
       /*border: 1px solid red;*/
@@ -1157,6 +1163,8 @@ video::-webkit-media-controls {
     }
 
     #carousel-devices {
+     
+
       @extend #carousel-top;
       background-image: none;
       height: 550px;

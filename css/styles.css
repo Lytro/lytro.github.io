@@ -15,6 +15,10 @@ body {
   overflow: hidden;
   background-color: #000000; }
 
+a {
+  text-decoration: none;
+  color: #53bffd; }
+
 /* RESIZE WINDOW MESSAGE */
 #resize-window-message {
   visibility: hidden;
@@ -803,6 +807,8 @@ video::-webkit-media-controls {
       width: 1024px;
       height: 600px;
       /*border: 1px solid red;*/ }
+      .static-page-content-wrapper .software-page-content #carousel-top a, .static-page-content-wrapper .software-page-content #carousel-devices a {
+        color: #53bffd; }
       .static-page-content-wrapper .software-page-content #carousel-top #web, .static-page-content-wrapper .software-page-content #carousel-devices #web {
         background-image: url(../images/page-software/web-hero.jpg);
         background-size: 1024px 600px;
