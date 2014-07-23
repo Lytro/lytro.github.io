@@ -1,0 +1,1192 @@
+/* MIXINS */
+/* LET THE STYLES BEGIN */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased; }
+
+html {
+  overflow: hidden;
+  background-color: #000000; }
+
+body {
+  overflow: hidden;
+  background-color: #000000; }
+
+/* RESIZE WINDOW MESSAGE */
+#resize-window-message {
+  visibility: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  z-index: 100; }
+  #resize-window-message .logo {
+    position: relative;
+    width: 100px;
+    height: 36px;
+    margin: 0 auto;
+    top: 50%;
+    margin-top: -18px;
+    background-image: url(../images/footer/logo-lytro-illum-stacked.svg);
+    background-size: 100px 36px; }
+  #resize-window-message .message {
+    position: relative;
+    font-family: 'Gotham SSm A', 'Gotham SSm B';
+    font-weight: 300;
+    font-style: normal;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    margin-top: 20px; }
+    #resize-window-message .message img {
+      vertical-align: middle; }
+
+/* end RESIZE WINDOW MESSAGE */
+/* MAIN NAV */
+nav#main-nav {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 92px;
+  background-color: rgba(32, 32, 32, 0.75);
+  z-index: 12; }
+  nav#main-nav #main-nav-inner {
+    position: relative;
+    max-width: 1200px;
+    min-width: 730px;
+    margin: 0 auto; }
+    nav#main-nav #main-nav-inner #logo {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      width: 403px;
+      height: 40px;
+      background-image: url(../images/main-nav/logo-lytro-illum.svg);
+      background-size: 403px 40px;
+      background-position: 0px 0px;
+      background-repeat: no-repeat;
+      cursor: pointer; }
+      nav#main-nav #main-nav-inner #logo a {
+        display: block;
+        width: 100%;
+        height: 100%; }
+    nav#main-nav #main-nav-inner #main-btns {
+      position: relative;
+      top: 40px;
+      float: right; }
+      @media only screen and (max-width: 1100px) {
+        nav#main-nav #main-nav-inner #main-btns {
+          display: none; } }
+      nav#main-nav #main-nav-inner #main-btns #btn-highlight {
+        display: none;
+        position: absolute;
+        top: 23px;
+        left: 20px;
+        width: 100px;
+        height: 2px;
+        background-color: #00aed6; }
+      nav#main-nav #main-nav-inner #main-btns li {
+        float: left;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 700;
+        font-style: normal;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 16px;
+        margin-left: 22px;
+        cursor: default;
+        -webkit-transition: all 200ms ease-out 0;
+        -moz-transition: all 200ms ease-out 0;
+        -o-transition: all 200ms ease-out 0;
+        transition: all 200ms ease-out 0;
+        -webkit-user-select: none;
+        /* Chrome all / Safari all */
+        -moz-user-select: none;
+        /* Firefox all */
+        -ms-user-select: none;
+        /* IE 10+ */
+        /* No support for these yet, use at own risk */
+        -o-user-select: none;
+        user-select: none; }
+        nav#main-nav #main-nav-inner #main-btns li:hover {
+          color: #00aed6; }
+        nav#main-nav #main-nav-inner #main-btns li a {
+          font-family: 'Gotham SSm A', 'Gotham SSm B';
+          font-weight: 700;
+          font-style: normal;
+          color: rgba(255, 255, 255, 0.7);
+          font-size: 16px;
+          -webkit-transition: all 200ms ease-out 0;
+          -moz-transition: all 200ms ease-out 0;
+          -o-transition: all 200ms ease-out 0;
+          transition: all 200ms ease-out 0;
+          -webkit-user-select: none;
+          /* Chrome all / Safari all */
+          -moz-user-select: none;
+          /* Firefox all */
+          -ms-user-select: none;
+          /* IE 10+ */
+          /* No support for these yet, use at own risk */
+          -o-user-select: none;
+          user-select: none;
+          text-decoration: none; }
+          nav#main-nav #main-nav-inner #main-btns li a:hover {
+            color: #00aed6; }
+      nav#main-nav #main-nav-inner #main-btns .selected {
+        color: #00aed6; }
+    nav#main-nav #main-nav-inner #buy-now-btn {
+      position: relative;
+      top: 28px;
+      float: right;
+      height: 38px;
+      border: 2px solid #00aed6;
+      margin-left: 34px;
+      cursor: pointer; }
+      nav#main-nav #main-nav-inner #buy-now-btn:hover > a > p {
+        color: #00aed6; }
+      nav#main-nav #main-nav-inner #buy-now-btn a {
+        text-decoration: none; }
+        nav#main-nav #main-nav-inner #buy-now-btn a p {
+          font-family: 'Gotham SSm A', 'Gotham SSm B';
+          font-weight: 700;
+          font-style: normal;
+          color: rgba(255, 255, 255, 0.7);
+          font-size: 16px;
+          margin: 10px 19px 12px 19px;
+          -webkit-transition: all 200ms ease-out 0;
+          -moz-transition: all 200ms ease-out 0;
+          -o-transition: all 200ms ease-out 0;
+          transition: all 200ms ease-out 0; }
+    nav#main-nav #main-nav-inner #extra-menu-btn {
+      position: relative;
+      top: 37px;
+      float: right;
+      width: 29px;
+      height: 20px;
+      margin-left: 80px;
+      margin-right: 58px;
+      cursor: pointer; }
+      @media only screen and (max-width: 1100px) {
+        nav#main-nav #main-nav-inner #extra-menu-btn {
+          margin-left: 40px;
+          margin-right: 65px; } }
+      nav#main-nav #main-nav-inner #extra-menu-btn .extra-menu-btn-hitarea:hover > .extra-menu-btn-fill {
+        fill: #00aed6; }
+      nav#main-nav #main-nav-inner #extra-menu-btn .extra-menu-btn-hitarea .extra-menu-btn-fill {
+        -webkit-transition: all 200ms ease-out 0;
+        -moz-transition: all 200ms ease-out 0;
+        -o-transition: all 200ms ease-out 0;
+        transition: all 200ms ease-out 0; }
+      nav#main-nav #main-nav-inner #extra-menu-btn #extra-menu {
+        display: none;
+        position: absolute;
+        top: 40px;
+        left: 50%;
+        margin-left: -69px;
+        width: 138px;
+        background-color: rgba(55, 55, 55, 0.5);
+        /*pointer-events:none;*/ }
+        nav#main-nav #main-nav-inner #extra-menu-btn #extra-menu #extra-menu-top-arrow {
+          position: absolute;
+          top: -14px;
+          left: 50%;
+          margin-left: -14px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 14px 14px 14px;
+          border-color: transparent transparent rgba(55, 55, 55, 0.5) transparent; }
+      nav#main-nav #main-nav-inner #extra-menu-btn ul {
+        margin: 20px; }
+        nav#main-nav #main-nav-inner #extra-menu-btn ul li, nav#main-nav #main-nav-inner #extra-menu-btn ul li a {
+          font-family: 'Gotham SSm A', 'Gotham SSm B';
+          font-weight: 700;
+          font-style: normal;
+          font-size: 16px;
+          color: white;
+          margin-bottom: 17px;
+          cursor: pointer;
+          text-decoration: none; }
+          nav#main-nav #main-nav-inner #extra-menu-btn ul li:hover, nav#main-nav #main-nav-inner #extra-menu-btn ul li a:hover {
+            color: #00aed6;
+            -webkit-transition: all 200ms ease-out 0;
+            -moz-transition: all 200ms ease-out 0;
+            -o-transition: all 200ms ease-out 0;
+            transition: all 200ms ease-out 0; }
+        nav#main-nav #main-nav-inner #extra-menu-btn ul .main-btns-responsive {
+          display: none; }
+          @media only screen and (max-width: 1100px) {
+            nav#main-nav #main-nav-inner #extra-menu-btn ul .main-btns-responsive {
+              display: block; } }
+
+/* end MAIN NAV */
+/* DOT NAV */
+nav#dot-nav {
+  position: absolute;
+  /*right:0px;*/
+  right: -156px;
+  top: 50%;
+  width: 106px;
+  height: 266px;
+  margin-top: -133px;
+  z-index: 11; }
+  nav#dot-nav #dot-highlight {
+    position: absolute;
+    top: -3px;
+    /*left:-3px;*/
+    left: 300px;
+    width: 20px;
+    height: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    border-radius: 20px;
+    background-color: black;
+    border: 4px solid #00aed6;
+    z-index: 3;
+    pointer-events: none; }
+  nav#dot-nav ol.list li:first-child {
+    display: none; }
+  nav#dot-nav ol.list li {
+    position: relative;
+    list-style: none;
+    margin-bottom: 0px; }
+    nav#dot-nav ol.list li .label {
+      visibility: hidden;
+      position: absolute;
+      right: 117px;
+      width: 400px;
+      text-align: right;
+      color: #fff;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 12px;
+      -webkit-user-select: none;
+      /* Chrome all / Safari all */
+      -moz-user-select: none;
+      /* Firefox all */
+      -ms-user-select: none;
+      /* IE 10+ */
+      /* No support for these yet, use at own risk */
+      -o-user-select: none;
+      user-select: none;
+      cursor: default;
+      margin-top: 2px;
+      -webkit-transition: all 200ms ease-out 0;
+      -moz-transition: all 200ms ease-out 0;
+      -o-transition: all 200ms ease-out 0;
+      transition: all 200ms ease-out 0;
+      text-shadow: 1px 1px 1px black; }
+    nav#dot-nav ol.list li .hit-area {
+      display: block;
+      position: relative;
+      top: -14px;
+      left: -14px;
+      width: 40px;
+      height: 40px;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      -ms-border-radius: 30px;
+      border-radius: 30px;
+      /*background-color: rgba(255,240,2,0.5);*/
+      border: 0px solid #FFFFFF;
+      cursor: pointer; }
+      nav#dot-nav ol.list li .hit-area:hover > .dot {
+        background-color: #00aed6; }
+      nav#dot-nav ol.list li .hit-area .dot {
+        display: block;
+        position: absolute;
+        top: 14px;
+        left: 13px;
+        width: 15px;
+        height: 15px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        border-radius: 10px;
+        background-color: #4f4f4f;
+        border: 0px solid #FFFFFF;
+        pointer-events: none;
+        -webkit-transition: all 200ms ease-out 0;
+        -moz-transition: all 200ms ease-out 0;
+        -o-transition: all 200ms ease-out 0;
+        transition: all 200ms ease-out 0; }
+
+/* end DOT NAV */
+/* INTRO VIDEO
+video::-webkit-media-controls {
+  //display:none !important;
+}*/
+#intro-video {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1; }
+  #intro-video #welcome {
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    top: 45%;
+    z-index: 10; }
+    #intro-video #welcome #welcome-text {
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 65px;
+      color: white;
+      top: 0%;
+      -webkit-user-select: none;
+      /* Chrome all / Safari all */
+      -moz-user-select: none;
+      /* Firefox all */
+      -ms-user-select: none;
+      /* IE 10+ */
+      /* No support for these yet, use at own risk */
+      -o-user-select: none;
+      user-select: none;
+      cursor: default;
+      pointer-events: none;
+      z-index: 10; }
+      @media only screen and (min-width: 1400px) {
+        #intro-video #welcome #welcome-text {
+          font-size: 85px; } }
+    #intro-video #welcome #watch-video-btn {
+      position: relative;
+      margin-top: 27px;
+      left: 50%;
+      margin-left: -81px;
+      height: 38px;
+      width: 162px;
+      border: 2px solid #00aed6;
+      cursor: pointer;
+      z-index: 11;
+      background-color: rgba(255, 255, 255, 0); }
+      #intro-video #welcome #watch-video-btn:hover {
+        background-color: rgba(255, 255, 255, 0.5); }
+      #intro-video #welcome #watch-video-btn:hover > p {
+        color: #00aed6; }
+      #intro-video #welcome #watch-video-btn p {
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 700;
+        font-style: normal;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        margin: 10px 19px 12px 19px;
+        -webkit-transition: all 200ms ease-out 0;
+        -moz-transition: all 200ms ease-out 0;
+        -o-transition: all 200ms ease-out 0;
+        transition: all 200ms ease-out 0; }
+  #intro-video #video-close-btn {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    /*background-color:rgba(32, 32, 32, 0.75);*/
+    background-image: url(../images/page-homepage-video/video-close-btn.svg);
+    background-size: 30px 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 1; }
+  #intro-video #video-audio-btn {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 30px;
+    /*background-color:rgba(32, 32, 32, 0.75);*/
+    background-image: url(../images/page-homepage-video/audio-icon.svg);
+    background-size: 38px 61px;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 1; }
+  #intro-video #video-wrap {
+    position: absolute;
+    z-index: 0;
+    min-width: 730px; }
+  #intro-video #explore-btn {
+    position: absolute;
+    bottom: -94px;
+    width: 100%;
+    height: 94px;
+    /*background-image: url(../images/explore-illum.jpg);
+    background-size: 1600px 94px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-color: #050505;*/
+    cursor: pointer;
+    text-align: center;
+    background-color: black; }
+    #intro-video #explore-btn img {
+      display: inline-block;
+      position: relative;
+      top: 26px;
+      margin-right: 13px; }
+    #intro-video #explore-btn h1 {
+      display: inline-block;
+      position: relative;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 26px;
+      color: rgba(255, 255, 255, 0.75);
+      top: 13px; }
+
+/* end INTRO VIDEO */
+/* Animation */
+#animation {
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-width: 730px;
+  min-height: 602px;
+  top: 0px;
+  background-color: #000000;
+  z-index: 2; }
+  #animation #animation-intro-video {
+    position: absolute;
+    z-index: 1;
+    min-width: 1024px;
+    width: 100%;
+    height: 100%; }
+    #animation #animation-intro-video video {
+      position: relative;
+      min-width: 1024px;
+      /*width:100%;*/
+      height: 100%;
+      margin: 0 auto;
+      /*border:1px solid yellow;*/ }
+  #animation #animation-video {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    /*border: 1px solid yellow;*/
+    padding-right: 100px;
+    padding-left: 100px; }
+    #animation #animation-video video {
+      position: relative;
+      margin: 0 auto;
+      height: 100%;
+      width: 100%; }
+      @media only screen and (min-height: 0px) {
+        #animation #animation-video video {
+          height: 50%;
+          margin-top: 120px; } }
+      @media only screen and (min-height: 600px) {
+        #animation #animation-video video {
+          height: 73%;
+          margin-top: 100px; } }
+      @media only screen and (min-height: 700px) {
+        #animation #animation-video video {
+          height: 78%;
+          margin-top: 80px; } }
+      @media only screen and (min-height: 800px) {
+        #animation #animation-video video {
+          height: 90%;
+          margin-top: 25px; } }
+      @media only screen and (min-height: 900px) {
+        #animation #animation-video video {
+          height: 100%;
+          margin-top: 0px; } }
+  #animation .animation-frame {
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%; }
+    #animation .animation-frame .animation-sprites-holder {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      /*border:5px solid yellow;*/
+      /* background-image:url(../images/design-elements/blue-down-arrow.svg);
+       background-position: center;
+       background-repeat: no-repeat;*/
+      z-index: 1; }
+      #animation .animation-frame .animation-sprites-holder #frame-2-sprite-1 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -739px;
+        margin-top: -270px; }
+        @media only screen and (min-height: 0px) {
+          #animation .animation-frame .animation-sprites-holder #frame-2-sprite-1 {
+            top: 47%;
+            margin-left: -601px;
+            margin-top: -246px;
+            -webkit-transform: scale(0.5); } }
+        @media only screen and (min-height: 600px) {
+          #animation .animation-frame .animation-sprites-holder #frame-2-sprite-1 {
+            top: 47%;
+            margin-left: -637px;
+            margin-top: -258px;
+            -webkit-transform: scale(0.6); } }
+        @media only screen and (min-height: 700px) {
+          #animation .animation-frame .animation-sprites-holder #frame-2-sprite-1 {
+            top: 47%;
+            margin-left: -739px;
+            margin-top: -260px;
+            -webkit-transform: scale(0.9); } }
+        @media only screen and (min-height: 800px) {
+          #animation .animation-frame .animation-sprites-holder #frame-2-sprite-1 {
+            top: 50%;
+            margin-left: -739px;
+            margin-top: -270px;
+            -webkit-transform: scale(1); } }
+    #animation .animation-frame .title {
+      position: absolute;
+      width: 100%;
+      top: 15%;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 40px;
+      text-align: center;
+      color: white; }
+      @media only screen and (min-height: 0px) {
+        #animation .animation-frame .title {
+          top: 18%; } }
+      @media only screen and (min-height: 600px) {
+        #animation .animation-frame .title {
+          top: 17%; } }
+      @media only screen and (min-height: 700px) {
+        #animation .animation-frame .title {
+          top: 16%; } }
+      @media only screen and (min-height: 800px) {
+        #animation .animation-frame .title {
+          top: 15%; } }
+      #animation .animation-frame .title .book {
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 400;
+        font-style: normal;
+        color: #00aed6; }
+    #animation .animation-frame .content-bottom-container {
+      position: absolute;
+      bottom: 50px;
+      width: 100%;
+      height: auto;
+      /*border:1px solid yellow;*/ }
+      @media only screen and (min-height: 600px) {
+        #animation .animation-frame .content-bottom-container {
+          bottom: 10px; } }
+      @media only screen and (min-height: 700px) {
+        #animation .animation-frame .content-bottom-container {
+          bottom: 25px; } }
+      @media only screen and (min-height: 800px) {
+        #animation .animation-frame .content-bottom-container {
+          bottom: 40px; } }
+      #animation .animation-frame .content-bottom-container .title {
+        position: relative;
+        width: 100%;
+        margin-bottom: 5px;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 300;
+        font-style: normal;
+        font-size: 36px;
+        text-align: center;
+        color: white; }
+        #animation .animation-frame .content-bottom-container .title .blue {
+          color: #00aed6; }
+        @media only screen and (min-height: 600px) {
+          #animation .animation-frame .content-bottom-container .title {
+            margin-bottom: 10px; } }
+        @media only screen and (min-height: 700px) {
+          #animation .animation-frame .content-bottom-container .title {
+            margin-bottom: 15px; } }
+        @media only screen and (min-height: 800px) {
+          #animation .animation-frame .content-bottom-container .title {
+            margin-bottom: 20px; } }
+      #animation .animation-frame .content-bottom-container .sub-title {
+        position: relative;
+        width: 100%;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 200;
+        font-style: normal;
+        font-size: 25px;
+        text-align: center;
+        color: white;
+        margin-bottom: 5px; }
+        @media only screen and (min-height: 600px) {
+          #animation .animation-frame .content-bottom-container .sub-title {
+            margin-bottom: 5px;
+            font-size: 29px; } }
+        @media only screen and (min-height: 700px) {
+          #animation .animation-frame .content-bottom-container .sub-title {
+            margin-bottom: 10px;
+            font-size: 32px; } }
+        @media only screen and (min-height: 800px) {
+          #animation .animation-frame .content-bottom-container .sub-title {
+            margin-bottom: 15px;
+            font-size: 36px; } }
+        #animation .animation-frame .content-bottom-container .sub-title .book {
+          font-family: 'Gotham SSm A', 'Gotham SSm B';
+          font-weight: 400;
+          font-style: normal;
+          color: #00aed6; }
+      #animation .animation-frame .content-bottom-container .divider {
+        position: relative; }
+      #animation .animation-frame .content-bottom-container .text {
+        position: relative;
+        margin: 0 auto;
+        margin-top: 5px;
+        max-width: 820px;
+        height: auto;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 300;
+        font-style: normal;
+        font-size: 14px;
+        text-align: center;
+        line-height: 27px;
+        color: rgba(255, 255, 255, 0.75); }
+        @media only screen and (min-height: 600px) {
+          #animation .animation-frame .content-bottom-container .text {
+            margin-top: 10px; } }
+        @media only screen and (min-height: 700px) {
+          #animation .animation-frame .content-bottom-container .text {
+            margin-top: 15px; } }
+        @media only screen and (min-height: 800px) {
+          #animation .animation-frame .content-bottom-container .text {
+            margin-top: 20px; } }
+
+.one-px-divider, #animation .animation-frame .content-bottom-container .divider, .static-page-content-wrapper .specs-page-content .specs-item .divider {
+  position: relative;
+  height: 1px;
+  width: 80%;
+  left: 0px;
+  right: 0px;
+  margin: 0 auto;
+  background-color: #000000;
+  background-image: linear-gradient(to right, transparent, #8b8b8b, #8b8b8b, transparent); }
+
+/* end ANIMATION */
+/* STATIC PAGE STYLES */
+.margin-top-mainNavHeight {
+  margin-top: 92px; }
+
+.padding-top-30 {
+  padding-top: 30px; }
+
+.dark-radial-bg {
+  background: url(../images/design-elements/dark-radial-bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+.static-page-content-wrapper {
+  overflow: hidden;
+  min-width: 730px;
+  background-repeat: no-repeat;
+  /*------end------*/
+  /*---------------*/
+  /* SOFTWARE PAGE */
+  /*---------------*/
+  /*---------------*/
+  /*---------------*/
+  /*---------------*/
+  /*  SPECS PAGE   */
+  /*---------------*/
+  /*---------------*/
+  /*------end------*/
+  /*---------------*/
+  /*  SPECS PAGE   */
+  /*---------------*/
+  /*---------------*/ }
+  .static-page-content-wrapper .software-page-content {
+    position: relative;
+    min-width: 730px;
+    max-width: 1600px;
+    margin: 0 auto;
+    /*border:1px solid red;*/
+    /*z-index: 13;*/
+    /*---------------*/
+    /*---------------*/
+    /* SOFTWARE PAGE */
+    /*---------------*/
+    /*---------------*/ }
+    .static-page-content-wrapper .software-page-content h1 {
+      width: 100%;
+      top: 189px;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 36px;
+      text-align: center;
+      color: white;
+      margin-bottom: 18px; }
+    .static-page-content-wrapper .software-page-content h2 {
+      width: 100%;
+      top: 189px;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 24px;
+      text-align: center;
+      color: white;
+      margin-bottom: 18px; }
+    .static-page-content-wrapper .software-page-content .divider {
+      height: 1px;
+      width: 100%;
+      left: 0px;
+      right: 0px;
+      margin: 0 auto;
+      background-color: #000000;
+      background-image: linear-gradient(to right, transparent, gray, gray, transparent); }
+    .static-page-content-wrapper .software-page-content p {
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 14px;
+      text-align: center;
+      line-height: 27px;
+      color: rgba(255, 255, 255, 0.75);
+      margin: 0 auto;
+      margin-top: 20px;
+      width: 820px; }
+    .static-page-content-wrapper .software-page-content #download-btn-holder {
+      width: 235px;
+      height: 40px;
+      margin: 0 auto;
+      margin-top: 35px; }
+      .static-page-content-wrapper .software-page-content #download-btn-holder .download-btn {
+        display: block;
+        float: none;
+        height: 40px;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 700;
+        font-style: normal;
+        font-size: 14px;
+        color: white;
+        background-color: #00aed6;
+        min-width: 235px;
+        text-align: center;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        border-radius: 10px;
+        padding: 13px;
+        cursor: pointer;
+        -webkit-transition: all 200ms ease-out 0;
+        -moz-transition: all 200ms ease-out 0;
+        -o-transition: all 200ms ease-out 0;
+        transition: all 200ms ease-out 0; }
+        .static-page-content-wrapper .software-page-content #download-btn-holder .download-btn:hover {
+          background-color: #ffffff;
+          color: #00aed6; }
+      .static-page-content-wrapper .software-page-content #download-btn-holder .float-left {
+        float: left; }
+      .static-page-content-wrapper .software-page-content #download-btn-holder .float-right {
+        float: right; }
+    .static-page-content-wrapper .software-page-content #carousel-top, .static-page-content-wrapper .software-page-content #carousel-devices {
+      position: relative;
+      margin: 0 auto;
+      margin-top: 45px;
+      width: 960px;
+      height: 400px;
+      /*border: 1px solid red;*/ }
+      .static-page-content-wrapper .software-page-content #carousel-top #web, .static-page-content-wrapper .software-page-content #carousel-devices #web {
+        background-image: url(../images/page-software/web-hero.jpg);
+        background-size: 1600px 649px;
+        width: 900px;
+        height: 400px;
+        padding: 20px; }
+      .static-page-content-wrapper .software-page-content #carousel-top #android, .static-page-content-wrapper .software-page-content #carousel-devices #android {
+        background-image: url(../images/page-software/android-hero.jpg);
+        background-size: 1600px 649px;
+        width: 900px;
+        height: 400px;
+        padding: 20px; }
+      .static-page-content-wrapper .software-page-content #carousel-top .arrow-left, .static-page-content-wrapper .software-page-content #carousel-devices .arrow-left {
+        display: none;
+        position: absolute;
+        top: 140px;
+        left: -125px;
+        width: 81px;
+        height: 139px;
+        background-image: url(../images/design-elements/chevron-thin-left.svg);
+        background-size: 71px 139px;
+        background-repeat: no-repeat;
+        background-position: 10px 0px;
+        cursor: pointer; }
+        .static-page-content-wrapper .software-page-content #carousel-top .arrow-left:hover, .static-page-content-wrapper .software-page-content #carousel-devices .arrow-left:hover {
+          /*background-position:-71px;*/ }
+      .static-page-content-wrapper .software-page-content #carousel-top .arrow-right, .static-page-content-wrapper .software-page-content #carousel-devices .arrow-right {
+        position: absolute;
+        top: 140px;
+        right: -125px;
+        width: 81px;
+        height: 139px;
+        background-image: url(../images/design-elements/chevron-thin-right.svg);
+        background-size: 71px 139px;
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+        cursor: pointer; }
+        .static-page-content-wrapper .software-page-content #carousel-top .arrow-right:hover, .static-page-content-wrapper .software-page-content #carousel-devices .arrow-right:hover {
+          /*background-position:71px;*/ }
+      .static-page-content-wrapper .software-page-content #carousel-top .carousel-images-holder, .static-page-content-wrapper .software-page-content #carousel-devices .carousel-images-holder {
+        position: absolute;
+        width: 900px;
+        height: 622px;
+        top: 14px;
+        left: 46px;
+        font: white;
+        /*border: 1px solid red;*/
+        overflow: hidden;
+        /*background-color: #ff0000;*/ }
+        .static-page-content-wrapper .software-page-content #carousel-top .carousel-images-holder ul, .static-page-content-wrapper .software-page-content #carousel-devices .carousel-images-holder ul {
+          position: absolute;
+          list-style: none; }
+          .static-page-content-wrapper .software-page-content #carousel-top .carousel-images-holder ul li, .static-page-content-wrapper .software-page-content #carousel-devices .carousel-images-holder ul li {
+            float: left; }
+          .static-page-content-wrapper .software-page-content #carousel-top .carousel-images-holder ul li img, .static-page-content-wrapper .software-page-content #carousel-devices .carousel-images-holder ul li img {
+            width: 511px;
+            height: 622px; }
+    .static-page-content-wrapper .software-page-content #carousel-top-text {
+      min-height: 100px; }
+    .static-page-content-wrapper .software-page-content #carousel-devices {
+      background-image: none;
+      height: 522px;
+      margin-bottom: 10px;
+      width: 620px; }
+      .static-page-content-wrapper .software-page-content #carousel-devices .carousel-images-holder {
+        position: absolute;
+        width: 492px;
+        height: 361px;
+        top: 21px;
+        left: 21px;
+        overflow: hidden; }
+        .static-page-content-wrapper .software-page-content #carousel-devices .carousel-images-holder ul {
+          position: absolute;
+          list-style: none; }
+          .static-page-content-wrapper .software-page-content #carousel-devices .carousel-images-holder ul li {
+            float: left; }
+          .static-page-content-wrapper .software-page-content #carousel-devices .carousel-images-holder ul li img {
+            width: 492px;
+            height: 361px; }
+    .static-page-content-wrapper .software-page-content #carousel-devices-text {
+      min-height: 100px; }
+    .static-page-content-wrapper .software-page-content #app-store-btn {
+      width: 169px;
+      height: 51px;
+      margin: 0 auto;
+      margin-bottom: 75px; }
+  .static-page-content-wrapper .specs-page-content .specs-item {
+    position: relative;
+    width: 630px;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 30px; }
+    .static-page-content-wrapper .specs-page-content .specs-item .spec-title {
+      float: left;
+      width: 215px; }
+      .static-page-content-wrapper .specs-page-content .specs-item .spec-title img {
+        width: 100%;
+        height: auto; }
+    .static-page-content-wrapper .specs-page-content .specs-item .spec-info {
+      float: left;
+      margin-left: 20px;
+      margin-top: 2px; }
+      .static-page-content-wrapper .specs-page-content .specs-item .spec-info h1 {
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 400;
+        font-style: normal;
+        font-size: 18px;
+        color: white;
+        text-align: left;
+        margin-bottom: 20px; }
+      .static-page-content-wrapper .specs-page-content .specs-item .spec-info h2 {
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        color: white;
+        text-align: left;
+        margin-bottom: 7px; }
+      .static-page-content-wrapper .specs-page-content .specs-item .spec-info ul {
+        margin-left: 20px;
+        margin-bottom: 20px;
+        max-width: 360px; }
+        .static-page-content-wrapper .specs-page-content .specs-item .spec-info ul li {
+          font-family: 'Gotham SSm A', 'Gotham SSm B';
+          font-weight: 300;
+          font-style: normal;
+          font-size: 14px;
+          color: white;
+          text-align: left;
+          margin-bottom: 6px;
+          line-height: 23px; }
+    .static-page-content-wrapper .specs-page-content .specs-item .divider {
+      opacity: 0.50; }
+
+#illum-app-divider {
+  position: relative;
+  width: 100%;
+  height: 94px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.06);
+  cursor: pointer; }
+  #illum-app-divider img {
+    display: inline-block;
+    position: relative;
+    top: 26px;
+    margin-right: 13px; }
+  #illum-app-divider h1 {
+    display: inline-block;
+    position: relative;
+    font-family: 'Gotham SSm A', 'Gotham SSm B';
+    font-weight: 300;
+    font-style: normal;
+    font-size: 26px;
+    color: white;
+    top: 13px; }
+
+#footer-reviews-wrapper {
+  width: 100%;
+  height: 270px;
+  background-color: #131313;
+  position: relative; }
+  #footer-reviews-wrapper #footer-reviews {
+    min-width: 730px;
+    max-width: 1600px;
+    margin: 0 auto; }
+    #footer-reviews-wrapper #footer-reviews .review-item {
+      float: left;
+      width: 33.33%;
+      height: 270px;
+      /*border:1px solid red;*/
+      text-align: center;
+      padding-top: 50px; }
+      #footer-reviews-wrapper #footer-reviews .review-item p {
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+        color: white;
+        opacity: 0.5;
+        margin: 20px; }
+
+#footer-wrapper {
+  width: 100%;
+  height: 210px;
+  position: relative; }
+  #footer-wrapper footer {
+    position: relative;
+    min-width: 1100px;
+    max-width: 1600px;
+    height: 210px;
+    margin: 0 auto;
+    background-image: url(../images/footer/footer-bg.jpg);
+    background-position: center top;
+    background-repeat: no-repeat; }
+    #footer-wrapper footer ul {
+      position: absolute;
+      top: 70px;
+      left: 100px; }
+      #footer-wrapper footer ul li {
+        list-style: none;
+        float: left;
+        margin-left: 20px;
+        cursor: pointer;
+        -moz-opacity: 0.5;
+        -khtml-opacity: 0.5;
+        opacity: 0.5;
+        -webkit-transition: all 200ms ease-out 0;
+        -moz-transition: all 200ms ease-out 0;
+        -o-transition: all 200ms ease-out 0;
+        transition: all 200ms ease-out 0; }
+        #footer-wrapper footer ul li:hover {
+          -moz-opacity: 1;
+          -khtml-opacity: 1;
+          opacity: 1; }
+      #footer-wrapper footer ul .fb-icon {
+        width: 29px;
+        height: 27px;
+        background-image: url(../images/footer/fb-tw-insta-icons.svg);
+        background-size: 86px 28px;
+        background-position: 0px 0px; }
+      #footer-wrapper footer ul .tw-icon {
+        width: 29px;
+        height: 27px;
+        background-image: url(../images/footer/fb-tw-insta-icons.svg);
+        background-size: 86px 28px;
+        background-position: -29px 0px; }
+      #footer-wrapper footer ul .insta-icon {
+        width: 29px;
+        height: 27px;
+        background-image: url(../images/footer/fb-tw-insta-icons.svg);
+        background-size: 86px 28px;
+        background-position: -57px 0px; }
+    #footer-wrapper footer .logo {
+      position: relative;
+      width: 109px;
+      height: 39px;
+      margin: 0 auto;
+      top: 65px;
+      cursor: pointer;
+      background-image: url(../images/footer/logo-lytro-illum-stacked.svg);
+      background-size: 109px 39px;
+      -moz-opacity: 0.5;
+      -khtml-opacity: 0.5;
+      opacity: 0.5;
+      -webkit-transition: all 200ms ease-out 0;
+      -moz-transition: all 200ms ease-out 0;
+      -o-transition: all 200ms ease-out 0;
+      transition: all 200ms ease-out 0; }
+      #footer-wrapper footer .logo:hover {
+        -moz-opacity: 1;
+        -khtml-opacity: 1;
+        opacity: 1; }
+      #footer-wrapper footer .logo a {
+        display: block;
+        width: 100%;
+        height: 100%; }
+    #footer-wrapper footer .copyright-text {
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+      top: 115px;
+      text-align: center;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.75); }
+    #footer-wrapper footer .email-signup {
+      display: none;
+      position: absolute;
+      top: 75px;
+      right: 115px; }
+      #footer-wrapper footer .email-signup .cover {
+        visibility: hidden;
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 193px;
+        height: 99px;
+        background: rgba(0, 0, 0, 0.8);
+        background-image: url(../images/footer/loading-spinner.gif);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 25px 25px;
+        z-index: 1; }
+      #footer-wrapper footer .email-signup .thank-you {
+        visibility: hidden;
+        position: absolute;
+        top: 2px;
+        left: 113px;
+        width: 183px;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 700;
+        font-style: normal;
+        font-style: normal;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 21px;
+        text-align: left;
+        background: none; }
+      #footer-wrapper footer .email-signup .text {
+        float: right;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 300;
+        font-style: normal;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.75);
+        text-align: right;
+        margin-right: 10px;
+        padding-top: 0px;
+        line-height: 15px; }
+      #footer-wrapper footer .email-signup .email-text {
+        float: right;
+        width: 183px;
+        height: 27px;
+        background: #4a4a4a;
+        color: #ababab;
+        border: none;
+        padding-left: 10px;
+        border: 0px;
+        outline: 0px;
+        box-sizing: border-box; }
+      #footer-wrapper footer .email-signup .country-dropdown {
+        visibility: hidden;
+        position: absolute;
+        right: 0px;
+        top: 30px;
+        width: 183px;
+        height: 27px;
+        background: #4a4a4a;
+        color: #ababab;
+        border: none;
+        padding-left: 10px;
+        border: 0px;
+        outline: 0px;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0px;
+        background-image: url(../images/footer/dropdown-menu-arrow.png);
+        background-size: 9px 11px;
+        background-repeat: no-repeat;
+        background-position: 168px 8px; }
+      #footer-wrapper footer .email-signup .submit-btn {
+        visibility: hidden;
+        position: absolute;
+        top: 60px;
+        right: 0px;
+        width: 183px;
+        height: 29px;
+        border: 2px solid #00aed6;
+        cursor: pointer;
+        background: none;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 700;
+        font-style: normal;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        text-align: center;
+        -webkit-transition: color 200ms ease-out 0;
+        -moz-transition: color 200ms ease-out 0;
+        -o-transition: color 200ms ease-out 0;
+        transition: color 200ms ease-out 0; }
+        #footer-wrapper footer .email-signup .submit-btn:hover {
+          color: #00aed6; }
+        #footer-wrapper footer .email-signup .submit-btn p {
+          font-family: 'Gotham SSm A', 'Gotham SSm B';
+          font-weight: 700;
+          font-style: normal;
+          color: rgba(255, 255, 255, 0.7);
+          font-size: 14px;
+          text-align: center;
+          margin-top: 6px;
+          -webkit-transition: all 200ms ease-out 0;
+          -moz-transition: all 200ms ease-out 0;
+          -o-transition: all 200ms ease-out 0;
+          transition: all 200ms ease-out 0; }
+      #footer-wrapper footer .email-signup .errorMessage {
+        position: absolute;
+        top: 100px;
+        right: 0px;
+        width: 183px;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 400;
+        font-style: normal;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 12px;
+        text-align: center; }
+      #footer-wrapper footer .email-signup .errorBorder {
+        border: 1px dotted #00aed6; }

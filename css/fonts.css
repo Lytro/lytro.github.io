@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'GothamBold';
+    src: url('../fonts/GothamBold/Gotham-Bold.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/GothamBold/Gotham-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/GothamBold/Gotham-Bold.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/GothamBold/Gotham-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/GothamBold/Gotham-Bold.svg#GothamBold') format('svg'); /* Legacy iOS */
+}
+
+/* Fixes jagged font in PC Chrome */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'GothamBold';
+        src: url('../fonts/GothamBold/Gotham-Bold.svg#GothamBold') format('svg');
+    }
+}
+
+@font-face {
+    font-family: 'GothamLight';
+    src: url('../fonts/GothamLight/Gotham-Light.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/GothamLight/Gotham-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/GothamLight/Gotham-Light.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/GothamLight/Gotham-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/GothamLight/Gotham-Light.svg#GothamLight') format('svg'); /* Legacy iOS */
+}
+
+/* Fixes jagged font in PC Chrome */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'GothamLight';
+        src: url('../fonts/GothamLight/Gotham-Light.svg#GothamLight') format('svg');
+    }
+}
+
+@font-face {
+    font-family: 'GothamBook';
+    src: url('../fonts/GothamBook/Gotham-Book.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/GothamBook/Gotham-Book.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/GothamBook/Gotham-Book.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/GothamBook/Gotham-Book.ttf')  format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/GothamBook/Gotham-Book.svg#GothamBook') format('svg'); /* Legacy iOS */
+}
+
+/* Fixes jagged font in PC Chrome */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'GothamBook';
+        src: url('../fonts/GothamBook/Gotham-Book.svg#GothamBook') format('svg');
+    }
+}

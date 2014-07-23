@@ -1,58 +1,377 @@
-<!DOCTYPE html>
-<html>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Lytro Developers : Light Field Picture Player" />
+<!doctype html>
+<html lang="en">
+<head>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <title>Lytro Dev</title>
 
-    <title>Lytro Developers</title>
-  </head>
+    <meta name="description" content="With LYTRO ILLUM, experience breakthrough photography with the first high-end camera that lets you capture and harness the power of light field, allowing you to create living pictures.">
 
-  <body>
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta property="og:title" content="LYTRO DEVELOPERS">
+    <meta property="og:description" content="With LYTRO ILLUM, experience breakthrough photography with the first high-end camera that lets you capture and harness the power of light field, allowing you to create living pictures.">
+    <meta property="og:image" content="https://www.lytro.com/_global/images/social/og_camera.jpg">
+    <meta property="og:url" content="https://www.lytro.com">
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
+    <link rel="icon" href="favicon.ico?v=1" />
+    <link rel="shortcut icon" href="favicon.ico?v=1" />
 
-          <h1 id="project_title">Lytro Developers</h1>
-          <h2 id="project_tagline">Light Field Picture Player</h2>
+    <!-- CSS STYLES -->
+    <link rel="stylesheet" type="text/css" media="all" title="normal" href="css/reset.css" />
+    <link id="site-styles" rel="stylesheet" type="text/css" media="all" title="normal" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-defs.css" />
+    <link rel="stylesheet" type="text/css" media="all" title="normal" href="css/ui-lightness/jquery-ui-1.10.3.custom.css">
 
-        </header>
-    </div>
+    <!-- DEVICE DETECT -->
+    <script src="js/plugins/device.js"></script>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-lytro-developers-page" class="anchor" href="#welcome-to-lytro-developers-page"><span class="octicon octicon-link"></span></a>Welcome to Lytro Developers Page</h3>
+    <!-- PROTOTYPE -->
+    <script src="js/plugins/prototype/prototype.js"></script>
 
-<p>This will be the home of more information about the Light Field Picture Player. We are currently working towards getting this open sourced and are excited to be sharing more details with you shortly.</p>
+    <!-- JQUERY & PLUGINS -->
+    <script src="js/plugins/jquery/jquery-2.1.1.min.js"></script>
+    <script src="js/plugins/jquery/jquery-migrate-1.2.1.js"></script>
+    <script src="js/plugins/jquery/jquery.mousewheel.min.js"></script>
+    <script src="js/plugins/jquery/jquery.touchSwipe.min.js"></script>
 
-<p>If you are interested in getting Light Field pictures on your website, check out the following embed instructions: <a href="https://support.lytro.com/hc/en-us/articles/200864610-Introduction-to-Embedding-Lytro-Living-Pictures">https://support.lytro.com/hc/en-us/articles/200864610-Introduction-to-Embedding-Lytro-Living-Pictures</a>.</p>
+    <!-- GSAP -->
+    <script src="js/plugins/greensock/TweenMax.min.js"></script>
+    <script src="js/plugins/greensock/TimelineMax.min.js"></script>
 
-<iframe height="550" allowtransparency="true" frameborder="0" scrolling="no" style="width:100%;border:none" src="https://lytro.wufoo.com/embed/r1sg2dlr15zi66i/">&amp;lt;a href="https://lytro.wufoo.com/forms/r1sg2dlr15zi66i/"&amp;gt;Fill out my Wufoo form!&amp;lt;/a&amp;gt;</iframe>
-      </section>
-    </div>
+    <!-- APP SCRIPTS -->
+    <script src="js/Globals.js"></script>
+    <script src="js/navigation/TopNav.js"></script>
+    <script src="js/navigation/TopNavMobile.js"></script>
+    <script src="js/carousel/Carousel.js"></script>
+    <script src="js/navigation/Footer.js"></script>
+    <script src="js/navigation/Reviews.js"></script>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-      </footer>
-    </div>
     <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-23763718-24', 'lytro.com');
-  ga('send', 'pageview');
+        var $j = jQuery.noConflict();
+
+        // enable scroll for this page
+        $j('body, html').css('overflow-y', 'auto');
+        $j('body, html').css('overflow-x', 'hidden');
+
+        $j(window).bind("load", function() {
+
+            if (IS_MOBILE) {
+                topNav = new TopNavMobile();
+            } else {
+                topNav = new TopNav();
+                reviews = new Reviews();
+                topCarousel = new Carousel($j('#carousel-top'), 960, false, $j('#carousel-top-text'));
+            }
+
+            footer = new Footer();
+
+            // fade preloader out, show first elements of page
+            var preloader = $j('#preloader');
+            TweenMax.to(preloader, 1, { alpha:0, onComplete:function(){
+                preloader.css('display', 'none');
+            } });
+
+            // show main nav
+            TweenMax.delayedCall(0.5, function (){
+                topNav.show();
+            });
+
+            // clicks
+            $j('#illum-app-divider').click(function(){
+                TweenMax.to($j('html, body'), 0.5, { scrollTop: $j("#illum-app-divider").offset().top, ease:Power1.easeInOut });
+            });
+
+            $j('#illum-app-divider').on('mouseover', function(){
+                TweenMax.to(this, 0.5, { scale: 1.05 });
+            });
+
+            $j('#illum-app-divider').on('mouseout', function(){
+                TweenMax.to(this, 0.5, { scale: 1 });
+            });
+        });
+
     </script>
 
-    
+</head>
 
-  </body>
+<body>
+
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-23763718-24', 'lytro.com');
+      ga('send', 'pageview');
+    </script>
+
+
+
+<!-- LOADER -->
+<div id="preloader">    
+    <div class="preloader-sprite"></div>
+</div>
+<!--end LOADER -->
+
+<!-- DESKTOP CONTENT -->
+<div id="desktop-content">
+
+<!-- MAIN NAV -->
+<nav id="main-nav">
+    <div id="main-nav-inner">
+        <div id="logo"><a href="/"></a></div>
+        <div id="extra-menu-btn">
+            <svg class="extra-menu-btn-hitarea" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="29px" height="20px" viewBox="0 0 29 20" enable-background="new 0 0 29 20" xml:space="preserve">
+                    <rect opacity="0.01" fill="#66CBE0" enable-background="new    " width="29" height="20"/>
+                    <path class="extra-menu-btn-fill" fill="#FFFFFF" d="M27.329,0H1.671C0.748,0,0,0.748,0,1.671v0.001c0,0.923,0.748,1.671,1.671,1.671h25.658
+                C28.252,3.344,29,2.595,29,1.673V1.671C29,0.748,28.252,0,27.329,0z M27.329,8.328H1.671C0.748,8.328,0,9.076,0,10v0.001
+                c0,0.923,0.748,1.671,1.671,1.671h25.658c0.923,0,1.671-0.748,1.671-1.671V10C29,9.076,28.252,8.328,27.329,8.328z
+                 M27.329,16.656H1.671C0.748,16.656,0,17.405,0,18.328v0.001C0,19.252,0.748,20,1.671,20h25.658C28.252,20,29,19.252,29,18.329
+                v-0.001C29,17.405,28.252,16.656,27.329,16.656z"/>
+                </svg>
+
+            <div id="extra-menu">
+                <div id="extra-menu-top-arrow"></div>
+                <ul>
+                    <li class="main-btns-responsive"><a href="https://www.staging.lytro.com/downloads/">SOFTWARE</a></li>
+                    <li class="main-btns-responsive"><a href="https://www.staging.lytro.com/camera/specs/">SPECS</a></li>
+                    <li class="main-btns-responsive"><a href="https://www.staging.lytro.com/learn/">TRAINING</a></li>
+                    <li><a href="https://pictures.lytro.com/" target="_blank">GALLERY</a></li>
+                    <li><a href="https://www.lytro.com/about/" target="_blank">ABOUT</a></li>
+                    <li><a href="https://support.lytro.com/hc/en-us" target="_blank">SUPPORT</a></li>
+                    <li><a href="https://store.lytro.com/" target="_blank">SHOP</a></li>
+                </ul>
+            </div>
+        </div>
+        <ul id="main-btns">            
+            <li><a href="https://www.staging.lytro.com/camera/specs/">LFP PLAYER</a></li>
+            <li><a href="https://www.staging.lytro.com/learn/">ANDROID</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- end MAIN NAV -->
+
+
+<!-- CONTENT -->
+<div class="static-page-content-wrapper margin-top-mainNavHeight">
+    <div class="software-page-content padding-top-30">
+        <!-- top carousel -->
+        <div id="carousel-top">
+            <div class="arrow-left"></div>
+            <div class="arrow-right"></div>
+            <div class="carousel-images-holder">
+                <ul>
+                    <li>
+                        <div id="web">
+                            <h1>WELCOME DEVELOPERS</h1>
+                            <h2>THE TOOLS TO BRING YOUR PICTURES TO LIFE.</h2>
+                            <p>This will be the home of more information about the Light Field Picture Player. We are currently working towards getting this open sourced and are excited to be sharing more details with you shortly.</p>
+
+                            <p>If you are interested in getting Light Field pictures on your website, check out the following <a href="https://support.lytro.com/hc/en-us/articles/200864610-Introduction-to-Embedding-Lytro-Living-Pictures">embed instructions</a>.
+                            </p>
+
+                            <!--
+                            <div id="download-btn-holder">            
+                                <a href="https://www.lytro.com/downloads/InstallLytro.exe"><span class="download-btn float-left">DOWNLOAD LFP SDK</span></a>
+                            </div>
+                            -->
+                        </div>
+                    </li>
+                    <li>
+                        <div id="android">
+                            <h1>WELCOME DEVELOPERS</h1>
+                            <h2>THIS WILL THE BE END ALL AND BE ALL FOR EVERYTHING ANDROID</h2>
+                            <p>This will be the home of more information about the Light Field Picture Player. We are currently working towards getting this open sourced and are excited to be sharing more details with you shortly.</p>
+                            <!--
+                            <div id="download-btn-holder">
+
+                                <a href="https://www.lytro.com/downloads/InstallLytro.exe"><span class="download-btn float-left">DOWNLOAD ANDROID SDK</span></a>
+                            </div>
+                            -->
+                        </div>
+                        
+                    </li>                    
+                </ul>
+            </div>
+        </div>
+        <p id="carousel-top-text">
+            
+        </p>
+        <!-- end top carousel -->
+         
+
+    </div>
+</div>
+
+<div id="illum-app-divider"><img src="images/design-elements/blue-down-arrow.svg" width="45" height="45"/><h1>INTERACTIVE PLAYER</h1></div>
+
+<div class="static-page-content-wrapper">
+    <div class="software-page-content padding-top-30">
+        <h1>LFP PLAYER</h1>
+        <div class="divider"></div>
+        <p>Capture your living pictures; then take them with you wherever you go with the new Lytro Mobile App. The app is now even easier to use: simply tilt your mobile device and watch your pictures come to life. Then with a tap, easily share to Pinterest, Facebook and Twitter.</p>
+
+        <!-- devices carousel -->
+        <div id="carousel-devices">
+             <p data-height="534" data-theme-id="7417" data-slug-hash="mpklC" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/melchiorx/pen/mpklC/'>mpklC</a> by Yow-Hann Lee (<a href='http://codepen.io/melchiorx'>@melchiorx</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+          <script async src="http://codepen.io/assets/embed/ei.js"></script>
+
+        </div>
+        <p id="carousel-devices-text"></p>
+        <!-- end devices carousel -->
+        <!--<div id="app-store-btn">
+            <a href="https://itunes.apple.com/us/app/lytro/id653750461?mt=8#" target="_blank"><img src="images/page-software/app-store.svg" width="169" height="51"/></a>
+        </div>-->
+    </div>
+</div>
+<!-- end CONTENT -->
+
+
+
+<!-- FOOTER -->
+<div id="footer-wrapper">
+<footer>
+<ul>
+    <a href="https://www.facebook.com/Lytro" target="_blank"><li class="fb-icon"></li></a>
+    <a href="https://twitter.com/Lytro" target="_blank"><li class="tw-icon"></li></a>
+    <a href="http://instagram.com/Lytro" target="_blank"><li class="insta-icon"></li></a>
+</ul>
+<div class="logo"><a href="https://www.staging.lytro.com/"></a></div>
+<div class="copyright-text">&copy; 2014 LYTRO, INC. ALL RIGHTS RESERVED</div>
+<script src="js/plugins/jquery/jquery.ajaxchimp.js"></script>
+<script src="js/plugins/jquery/jquery.placeholder.js"></script>
+
+<script>
+    // for IE9, need placeholder plugin for textarea and input textfields
+    $j('input, textarea').placeholder();
+</script>
+
+</footer>
+</div>    <!-- end FOOTER -->
+
+</div>
+<!-- end DESKTOP CONTENT -->
+
+
+
+
+<!-- MOBILE CONTENT -->
+<div id="mobile-content">
+
+
+
+
+<!-- MAIN NAV MOBILE -->
+<nav id="main-nav-mobile">
+
+    <div id="menu-btn-mobile"></div>
+
+    <div id="logo-mobile"></div>
+
+    <div id="menu-mobile">
+        <ul>
+            <li class="title">LYTRO ILLUM</li>
+      <li><a href="https://www.staging.lytro.com/"><p>EXPLORE</p></a></li>
+      <li><a href="https://www.staging.lytro.com/downloads/"><p>SOFTWARE</p></a></li>
+      <li><a href="https://www.staging.lytro.com/camera/specs/"><p>SPECS</p></a></li>
+      <li><a href="https://www.staging.lytro.com/learn/"><p>TRAINING</p></a></li>
+        </ul>
+        <ul>
+            <li class="title">LYTRO</li>
+            <li><a href="https://pictures.lytro.com/" target="_blank"><p>GALLERY</p></a></li>
+            <li><a href="https://www.lytro.com/about/" target="_blank"><p>ABOUT</p></a></li>
+            <li><a href="https://support.lytro.com/hc/en-us" target="_blank"><p>SUPPORT</p></a></li>
+            <li><a href="https://store.lytro.com/" target="_blank"><p>SHOP</p></a></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+</nav>    <!-- end MAIN NAV MOBILE -->
+
+
+
+<!-- CONTENT -->
+<div id="mobile-content-wrapper">
+    <div id="software-page-content">
+
+        <section class="padding-top-30">
+            <div class="section-header">
+                <h1 class="section-title">WELCOME DEVELOPERS</h1>
+                <h2 class="section-title-smaller">THE TOOLS TO BRING YOUR PICTURES TO LIFE.</h2>
+                <p class="text">This will be the home of more information about the Light Field Picture Player. We are currently working towards getting this open sourced and are excited to be sharing more details with you shortly.</p>
+
+                <p class="text">If you are interested in getting Light Field pictures on your website, check out the following <a href="https://support.lytro.com/hc/en-us/articles/200864610-Introduction-to-Embedding-Lytro-Living-Pictures">embed instructions</a>.
+                </p>               
+            </div>
+        </section>
+
+        <div class="thick-divider">
+            <img src="images/design-elements/blue-down-arrow.svg"/>
+            <h1>INTERACTIVE PLAYER</h1>
+        </div>
+
+        <section class="padding-top-30">
+            <div class="section-header">
+                <div class="one-px-divider-soft-sides"></div>
+                <p data-height="534" data-theme-id="7417" data-slug-hash="mpklC" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/melchiorx/pen/mpklC/'>mpklC</a> by Yow-Hann Lee (<a href='http://codepen.io/melchiorx'>@melchiorx</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+          <script async src="http://codepen.io/assets/embed/ei.js"></script>
+            </div>
+        </section>
+
+        <!--<div id="app-store-btn" style="margin-bottom:30px;">
+            <a href="https://itunes.apple.com/us/app/lytro/id653750461?mt=8#" target="_blank"><img src="images/page-software/app-store.svg" width="169" height="51"/></a>
+        </div>-->
+
+    </div>
+</div>
+<!-- end CONTENT -->
+
+
+
+<!-- FOOTER -->
+<div id="footer-wrapper">
+<footer>
+<div class="logo"></div>
+<ul>
+    <a href="https://www.facebook.com/Lytro" target="_blank"><li class="fb-icon"></li></a>
+    <a href="https://twitter.com/Lytro" target="_blank"><li class="tw-icon"></li></a>
+    <a href="http://instagram.com/Lytro" target="_blank"><li class="insta-icon"></li></a>
+</ul>
+<script src="js/plugins/jquery/jquery.ajaxchimp.js"></script>
+<script src="js/plugins/jquery/jquery.placeholder.js"></script>
+
+<script>
+    // for IE9, need placeholder plugin for textarea and input textfields
+    $j('input, textarea').placeholder();
+</script>
+
+       <div class="copyright-text">&copy; 2014 LYTRO, INC. ALL RIGHTS RESERVED</div>
+</footer>
+</div>    <!-- end FOOTER -->
+
+</div>
+<!-- end MOBILE CONTENT -->
+
+
+
+<!-- CHECK PLATFORM. IF MOBILE, REMOVE ALL DESKTOP CONTENT. IF DESKTOP, REMOVE ALL MOBILE CONTENT. -->
+<script src="js/Detect.js"></script>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23763718-1']);
+    _gaq.push(['_setDomainName', 'lytro.com']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+</body>
 </html>

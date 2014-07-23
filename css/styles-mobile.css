@@ -1,0 +1,975 @@
+/* MIXINS */
+/* LET THE STYLES BEGIN */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased; }
+
+body, html {
+  background-color: #000000; }
+
+.blue {
+  color: #00aed6; }
+
+/* PRELOADER */
+#preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #171717;
+  z-index: 20000000; }
+  #preloader .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 30px;
+    margin-left: -25px;
+    margin-top: -15px;
+    text-align: center;
+    font-size: 10px; }
+    #preloader .spinner div {
+      background-color: #00aed6;
+      height: 100%;
+      width: 6px;
+      display: inline-block;
+      -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+      animation: stretchdelay 1.2s infinite ease-in-out; }
+    #preloader .spinner .rect2 {
+      -webkit-animation-delay: -1.1s;
+      animation-delay: -1.1s; }
+    #preloader .spinner .rect3 {
+      -webkit-animation-delay: -1.0s;
+      animation-delay: -1.0s; }
+    #preloader .spinner .rect4 {
+      -webkit-animation-delay: -0.9s;
+      animation-delay: -0.9s; }
+    #preloader .spinner .rect5 {
+      -webkit-animation-delay: -0.8s;
+      animation-delay: -0.8s; }
+  #preloader .preloader-sprite {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -44px;
+    margin-top: -47px; }
+
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% {
+    -webkit-transform: scaleY(0.4); }
+
+  20% {
+    -webkit-transform: scaleY(1); } }
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4); }
+
+  20% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1); } }
+/* end PRELOADER */
+/* MAIN NAV */
+nav#main-nav-mobile {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 36px;
+  background-color: rgba(32, 32, 32, 0.9);
+  z-index: 12; }
+  @media only screen and (min-width: 768px) {
+    nav#main-nav-mobile {
+      font-size: 45px;
+      line-height: 50px;
+      height: 70px; } }
+  nav#main-nav-mobile #menu-btn-mobile {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    float: left;
+    width: 55px;
+    height: 47px;
+    background-image: url(../images/main-nav/main-nav-extra-menu-btn.svg);
+    background-size: 27px 20px;
+    background-position: 8px 8px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 2; }
+    @media only screen and (min-width: 768px) {
+      nav#main-nav-mobile #menu-btn-mobile {
+        top: 19px;
+        left: 17px;
+        width: 46px;
+        height: 32px;
+        background-size: 46px 32px;
+        background-position: 0px 0px; } }
+  nav#main-nav-mobile #logo-mobile {
+    position: absolute;
+    top: 12px;
+    left: 68px;
+    width: 135px;
+    height: 14px;
+    background-image: url(../images/main-nav/logo-lytro-illum.svg);
+    background-size: 135px 14px;
+    cursor: pointer; }
+    @media only screen and (min-width: 768px) {
+      nav#main-nav-mobile #logo-mobile {
+        width: 440px;
+        height: 36px;
+        background-size: 440px 36px;
+        left: 82px;
+        top: 17px; } }
+  nav#main-nav-mobile #buy-now-btn-mobile {
+    position: relative;
+    top: 6px;
+    float: right;
+    height: 23px;
+    margin-right: 6px;
+    border: 1px solid #00aed6;
+    cursor: pointer; }
+    @media only screen and (min-width: 768px) {
+      nav#main-nav-mobile #buy-now-btn-mobile {
+        top: 18px;
+        height: 33px;
+        margin-right: 15px;
+        border: 2px solid #00aed6; } }
+    nav#main-nav-mobile #buy-now-btn-mobile:hover > a > p {
+      color: #00aed6; }
+    nav#main-nav-mobile #buy-now-btn-mobile a {
+      text-decoration: none; }
+    nav#main-nav-mobile #buy-now-btn-mobile a p {
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 700;
+      font-style: normal;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 10px;
+      margin: 5px 10px 5px 10px;
+      -webkit-transition: all 200ms ease-out 0;
+      -moz-transition: all 200ms ease-out 0;
+      -o-transition: all 200ms ease-out 0;
+      transition: all 200ms ease-out 0; }
+      @media only screen and (min-width: 768px) {
+        nav#main-nav-mobile #buy-now-btn-mobile a p {
+          font-size: 17px;
+          margin: -10px 10px 5px 10px; } }
+  nav#main-nav-mobile #menu-mobile {
+    display: none;
+    position: absolute;
+    padding-top: 36px;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    overflow-y: scroll;
+    z-index: 1;
+    background-color: rgba(55, 55, 55, 0.5);
+    /*pointer-events:none;*/ }
+    @media only screen and (min-width: 768px) {
+      nav#main-nav-mobile #menu-mobile {
+        padding-top: 70px; } }
+    nav#main-nav-mobile #menu-mobile ul {
+      /*margin:20px;*/ }
+      nav#main-nav-mobile #menu-mobile ul .title {
+        display: block;
+        width: 100%;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 700;
+        font-style: normal;
+        background-color: #181818;
+        border-bottom: 1px solid #050505;
+        padding-left: 42px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        font-size: 21px;
+        color: white; }
+        @media only screen and (min-width: 768px) {
+          nav#main-nav-mobile #menu-mobile ul .title {
+            padding-top: 0px;
+            padding-left: 82px; } }
+      nav#main-nav-mobile #menu-mobile ul li {
+        display: block;
+        width: 100%;
+        height: 50px;
+        background-color: #000000; }
+      nav#main-nav-mobile #menu-mobile ul li a {
+        display: block;
+        width: 100%;
+        height: 50px;
+        background-color: #050505;
+        border-bottom: 1px solid #181818;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 300;
+        font-style: normal;
+        font-size: 19px;
+        color: #ffffff;
+        cursor: pointer;
+        text-decoration: none; }
+        nav#main-nav-mobile #menu-mobile ul li a:hover {
+          color: #00aed6;
+          -webkit-transition: all 200ms ease-out 0;
+          -moz-transition: all 200ms ease-out 0;
+          -o-transition: all 200ms ease-out 0;
+          transition: all 200ms ease-out 0; }
+      nav#main-nav-mobile #menu-mobile ul li p, nav#main-nav-mobile #menu-mobile ul li a p {
+        padding-left: 56px;
+        padding-top: 15px; }
+        @media only screen and (min-width: 768px) {
+          nav#main-nav-mobile #menu-mobile ul li p, nav#main-nav-mobile #menu-mobile ul li a p {
+            padding-top: 0px;
+            padding-left: 96px; } }
+
+/* end MAIN NAV */
+.one-px-divider-soft-sides, .specs-page-content .specs-item .divider {
+  position: relative;
+  height: 1px;
+  width: 80%;
+  left: 0px;
+  right: 0px;
+  margin: 0 auto;
+  background-color: #000000;
+  background-image: linear-gradient(to right, black, white, white, black);
+  -moz-opacity: 0.4;
+  -khtml-opacity: 0.4;
+  opacity: 0.4; }
+
+.one-px-divider {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  left: 0px;
+  right: 0px;
+  margin: 0 auto;
+  background-color: #444343; }
+
+.margin-top-mainNavHeight {
+  margin-top: 36px; }
+
+.padding-top-30 {
+  padding-top: 30px; }
+
+.padding-top-60 {
+  padding-top: 60px; }
+
+.dark-radial-bg {
+  background: url(../images/design-elements/dark-radial-bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+/*---------------*/
+/*---------------*/
+/* INDEX PAGE    */
+/*---------------*/
+/*---------------*/
+#index-page-content {
+  width: 100%; }
+  #index-page-content #header {
+    position: relative;
+    width: 100%;
+    margin-bottom: -2px; }
+    #index-page-content #header h1 {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 27px;
+      text-align: center;
+      color: #ffffff;
+      padding-left: 5px;
+      padding-right: 5px; }
+      @media only screen and (min-width: 400px) {
+        #index-page-content #header h1 {
+          font-size: 37px; } }
+      @media only screen and (min-width: 768px) {
+        #index-page-content #header h1 {
+          font-size: 60px; } }
+    #index-page-content #header img {
+      width: 100%; }
+  #index-page-content .thick-divider {
+    width: 100%;
+    height: 47px;
+    background-color: #171717;
+    text-align: center; }
+    @media only screen and (min-width: 768px) {
+      #index-page-content .thick-divider {
+        height: 70px; } }
+    #index-page-content .thick-divider img {
+      display: inline-block;
+      position: relative;
+      top: 14px;
+      width: 20px;
+      height: 20px; }
+    #index-page-content .thick-divider h1 {
+      display: inline-block;
+      position: relative;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+      top: 9px; }
+    @media only screen and (min-width: 768px) {
+      #index-page-content .thick-divider h1 {
+        font-size: 26px;
+        top: 4px; }
+      #index-page-content .thick-divider img {
+        display: inline-block;
+        position: relative;
+        top: 15px;
+        width: 40px;
+        height: 40px; } }
+  #index-page-content img {
+    width: 100%; }
+  #index-page-content .title {
+    width: 100%;
+    text-align: center;
+    font-family: 'Gotham SSm A', 'Gotham SSm B';
+    font-weight: 300;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 26px;
+    color: #ffffff;
+    margin-bottom: 25px; }
+    @media only screen and (min-width: 768px) {
+      #index-page-content .title {
+        font-size: 45px;
+        line-height: 50px; } }
+  #index-page-content .text {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    font-family: 'Gotham SSm A', 'Gotham SSm B';
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 24px;
+    padding: 24px 20px 24px 20px; }
+    @media only screen and (min-width: 768px) {
+      #index-page-content .text {
+        font-size: 25px;
+        line-height: 32px; } }
+  #index-page-content .section-header {
+    position: relativev;
+    width: 100%; }
+    #index-page-content .section-header .section-title {
+      position: relative;
+      margin-top: 25px;
+      margin-bottom: 25px;
+      padding: 0px 10px 0px 10px;
+      width: 100%;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 20px;
+      color: #ffffff;
+      text-align: center;
+      line-height: 27px; }
+      @media only screen and (min-width: 768px) {
+        #index-page-content .section-header .section-title {
+          font-size: 45px;
+          line-height: 50px; } }
+    #index-page-content .section-header .section-title-smaller {
+      position: relative;
+      margin-top: 25px;
+      margin-bottom: 25px;
+      padding: 0px 10px 0px 10px;
+      width: 100%;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 15px;
+      color: #ffffff;
+      text-align: center;
+      line-height: 27px; }
+      @media only screen and (min-width: 768px) {
+        #index-page-content .section-header .section-title-smaller {
+          font-size: 35px;
+          line-height: 50px; } }
+    #index-page-content .section-header img {
+      width: 100%; }
+    #index-page-content .section-header .section-subtitle {
+      position: relative;
+      margin-top: 25px;
+      margin-bottom: 25px;
+      padding: 0px 10px 0px 10px;
+      width: 100%;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 18px;
+      color: #ffffff;
+      text-align: center;
+      line-height: 25px; }
+      @media only screen and (min-width: 768px) {
+        #index-page-content .section-header .section-subtitle {
+          font-size: 40px;
+          line-height: 50px; } }
+
+/*-----end-------*/
+/*---------------*/
+/* INDEX PAGE    */
+/*---------------*/
+/*---------------*/
+/*---------------*/
+/*---------------*/
+/* SOFTWARE PAGE */
+/*---------------*/
+/*---------------*/
+#software-page-content {
+  width: 100%; }
+  #software-page-content #header {
+    position: relative;
+    width: 100%;
+    margin-bottom: -2px; }
+    #software-page-content #header h1 {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 27px;
+      text-align: center;
+      color: #ffffff;
+      padding-left: 5px;
+      padding-right: 5px; }
+      @media only screen and (min-width: 400px) {
+        #software-page-content #header h1 {
+          font-size: 37px; } }
+      @media only screen and (min-width: 768px) {
+        #software-page-content #header h1 {
+          font-size: 60px; } }
+    #software-page-content #header img {
+      width: 100%; }
+  #software-page-content .thick-divider {
+    width: 100%;
+    height: 47px;
+    background-color: #171717;
+    text-align: center; }
+    @media only screen and (min-width: 768px) {
+      #software-page-content .thick-divider {
+        height: 70px; } }
+    #software-page-content .thick-divider img {
+      display: inline-block;
+      position: relative;
+      top: 14px;
+      width: 20px;
+      height: 20px; }
+    #software-page-content .thick-divider h1 {
+      display: inline-block;
+      position: relative;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+      top: 9px; }
+    @media only screen and (min-width: 768px) {
+      #software-page-content .thick-divider h1 {
+        font-size: 26px;
+        top: 4px; }
+      #software-page-content .thick-divider img {
+        display: inline-block;
+        position: relative;
+        top: 15px;
+        width: 40px;
+        height: 40px; } }
+  #software-page-content img {
+    width: 100%; }
+  #software-page-content .title {
+    width: 100%;
+    text-align: center;
+    font-family: 'Gotham SSm A', 'Gotham SSm B';
+    font-weight: 300;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 26px;
+    color: #ffffff;
+    margin-bottom: 25px; }
+    @media only screen and (min-width: 768px) {
+      #software-page-content .title {
+        font-size: 45px;
+        line-height: 50px; } }
+  #software-page-content .text {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    font-family: 'Gotham SSm A', 'Gotham SSm B';
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 24px;
+    padding: 24px 20px 24px 20px; }
+    @media only screen and (min-width: 768px) {
+      #software-page-content .text {
+        font-size: 25px;
+        line-height: 32px; } }
+  #software-page-content .section-header {
+    position: relativev;
+    width: 100%; }
+    #software-page-content .section-header .section-title {
+      position: relative;
+      margin-top: 25px;
+      margin-bottom: 0px;
+      padding: 0px 10px 0px 10px;
+      width: 100%;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 20px;
+      color: #ffffff;
+      text-align: center;
+      line-height: 27px; }
+      @media only screen and (min-width: 768px) {
+        #software-page-content .section-header .section-title {
+          font-size: 45px;
+          line-height: 50px;
+          margin-top: 50px; } }
+    #software-page-content .section-header .section-title-smaller {
+      position: relative;
+      margin-top: 0px;
+      margin-bottom: 25px;
+      padding: 0px 10px 0px 10px;
+      width: 100%;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 15px;
+      color: #ffffff;
+      text-align: center;
+      line-height: 27px; }
+      @media only screen and (min-width: 768px) {
+        #software-page-content .section-header .section-title-smaller {
+          font-size: 35px;
+          line-height: 50px; } }
+    #software-page-content .section-header img {
+      width: 96%;
+      margin-left: 2%;
+      margin-right: 2%;
+      margin-bottom: 2%; }
+    #software-page-content .section-header .section-subtitle {
+      position: relative;
+      margin-top: 25px;
+      margin-bottom: 25px;
+      padding: 0px 10px 0px 10px;
+      width: 100%;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 18px;
+      color: #ffffff;
+      text-align: center;
+      line-height: 25px; }
+      @media only screen and (min-width: 768px) {
+        #software-page-content .section-header .section-subtitle {
+          font-size: 40px;
+          line-height: 50px; } }
+  #software-page-content #app-store-btn {
+    width: 169px;
+    height: 51px;
+    margin: 0 auto;
+    margin-bottom: 75px; }
+
+/*------end------*/
+/*---------------*/
+/* SOFTWARE PAGE */
+/*---------------*/
+/*---------------*/
+/*---------------*/
+/*---------------*/
+/*  SPECS PAGE   */
+/*---------------*/
+/*---------------*/
+@media only screen and (min-width: 768px) {
+  .specs-page-content {
+    padding-top: 100px; } }
+.specs-page-content .specs-item {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  text-align: center; }
+  .specs-page-content .specs-item .spec-title {
+    float: left;
+    width: 100%; }
+    .specs-page-content .specs-item .spec-title img {
+      width: 80%;
+      height: auto; }
+  .specs-page-content .specs-item .spec-info {
+    float: left;
+    margin-top: 10px;
+    text-align: left;
+    width: 100%;
+    padding: 0px 40px 0px 40px; }
+    .specs-page-content .specs-item .spec-info h1 {
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 18px;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 10px; }
+      @media only screen and (min-width: 400px) {
+        .specs-page-content .specs-item .spec-info h1 {
+          font-size: 37px; } }
+      @media only screen and (min-width: 768px) {
+        .specs-page-content .specs-item .spec-info h1 {
+          font-size: 60px; } }
+    .specs-page-content .specs-item .spec-info h2 {
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 14px;
+      color: #ffffff;
+      text-align: left;
+      margin-bottom: 7px;
+      width: 100%; }
+      @media only screen and (min-width: 400px) {
+        .specs-page-content .specs-item .spec-info h2 {
+          font-size: 20px; } }
+      @media only screen and (min-width: 768px) {
+        .specs-page-content .specs-item .spec-info h2 {
+          font-size: 30px; } }
+    .specs-page-content .specs-item .spec-info ul {
+      list-style: disc;
+      margin-bottom: 20px;
+      width: 100%; }
+      .specs-page-content .specs-item .spec-info ul li {
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 300;
+        font-style: normal;
+        font-size: 14px;
+        color: #ffffff;
+        margin-left: 20px;
+        margin-bottom: 6px;
+        padding-right: 20px;
+        width: 100%;
+        text-align: left;
+        line-height: 18px; }
+        @media only screen and (min-width: 400px) {
+          .specs-page-content .specs-item .spec-info ul li {
+            font-size: 18px;
+            line-height: 22px; } }
+        @media only screen and (min-width: 768px) {
+          .specs-page-content .specs-item .spec-info ul li {
+            font-size: 22px;
+            line-height: 26px; } }
+  .specs-page-content .specs-item .divider {
+    opacity: 0.25; }
+
+/*------end------*/
+/*---------------*/
+/*  SPECS PAGE   */
+/*---------------*/
+/*---------------*/
+/*----------------*/
+/*----------------*/
+/* TRAINING PAGE  */
+/*----------------*/
+/*----------------*/
+#training-page-content {
+  padding-top: 60px; }
+  @media only screen and (min-width: 768px) {
+    #training-page-content {
+      padding-top: 90px; } }
+  #training-page-content h1 {
+    font-family: 'Gotham SSm A', 'Gotham SSm B';
+    font-weight: 300;
+    font-style: normal;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    margin-bottom: 30px; }
+    @media only screen and (min-width: 768px) {
+      #training-page-content h1 {
+        font-size: 36px; } }
+  #training-page-content img {
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 10px; }
+  #training-page-content .video-tutorials-bar {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 47px;
+    background-color: #171717;
+    text-align: center;
+    z-index: 1;
+    cursor: pointer; }
+    @media only screen and (min-width: 768px) {
+      #training-page-content .video-tutorials-bar {
+        height: 70px; } }
+    #training-page-content .video-tutorials-bar img {
+      display: inline-block;
+      position: relative;
+      top: 2px;
+      width: 40px;
+      height: 40px; }
+    #training-page-content .video-tutorials-bar h1 {
+      display: inline-block;
+      position: relative;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.75);
+      top: -19px; }
+    @media only screen and (min-width: 768px) {
+      #training-page-content .video-tutorials-bar h1 {
+        font-size: 26px;
+        top: -5px; }
+      #training-page-content .video-tutorials-bar img {
+        display: inline-block;
+        position: relative;
+        top: 15px;
+        width: 40px;
+        height: 40px; } }
+  #training-page-content #training-videos-holder {
+    margin-top: 30px; }
+    #training-page-content #training-videos-holder li {
+      position: relative;
+      margin-bottom: 20px; }
+      #training-page-content #training-videos-holder li iframe {
+        width: 100%;
+        /*height: auto;*/ }
+      #training-page-content #training-videos-holder li .img-holder:before {
+        position: absolute;
+        content: " ";
+        display: block;
+        width: 80px;
+        height: 80px;
+        top: 50%;
+        left: 50%;
+        margin-top: -40px;
+        margin-left: -40px;
+        background-image: url(../images/design-elements/blue-play-icon.svg);
+        background-size: 78px 78px;
+        background-repeat: no-repeat; }
+      #training-page-content #training-videos-holder li .img-holder {
+        position: relative; }
+      #training-page-content #training-videos-holder li h1 {
+        position: relative;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 300;
+        font-style: normal;
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.75);
+        margin: 10px;
+        text-align: left; }
+      #training-page-content #training-videos-holder li p {
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 300;
+        font-style: normal;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.75);
+        text-align: left;
+        padding: 0px 15px 0px 15px;
+        line-height: 26px; }
+
+/*------end-------*/
+/*----------------*/
+/* TRAINING PAGE  */
+/*----------------*/
+/*----------------*/
+#footer-wrapper {
+  width: 100%;
+  height: 334px;
+  position: relative;
+  /*background-image: url(../images-mobile/footer-bg.jpg);*/
+  background-color: #171717;
+  background-position: center top;
+  background-repeat: repeat-x; }
+  #footer-wrapper footer {
+    position: relative;
+    width: 100%;
+    height: 334px;
+    padding-top: 35px; }
+    #footer-wrapper footer .logo {
+      width: 80px;
+      height: 30px;
+      margin: 0 auto;
+      background-image: url(../images/footer/logo-lytro-illum-stacked.svg);
+      background-size: 80px 30px;
+      -moz-opacity: 0.5;
+      -khtml-opacity: 0.5;
+      opacity: 0.5; }
+    #footer-wrapper footer ul {
+      width: 100%;
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 22px; }
+      #footer-wrapper footer ul li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+        cursor: pointer;
+        -moz-opacity: 0.5;
+        -khtml-opacity: 0.5;
+        opacity: 0.5;
+        -webkit-transition: all 200ms ease-out 0;
+        -moz-transition: all 200ms ease-out 0;
+        -o-transition: all 200ms ease-out 0;
+        transition: all 200ms ease-out 0; }
+        #footer-wrapper footer ul li:hover {
+          -moz-opacity: 1;
+          -khtml-opacity: 1;
+          opacity: 1; }
+      #footer-wrapper footer ul .fb-icon {
+        width: 36px;
+        height: 36px;
+        background-image: url(../images/footer/fb-tw-insta-icons.svg);
+        background-size: 110px 65px;
+        background-position: 0px -15px; }
+      #footer-wrapper footer ul .tw-icon {
+        width: 36px;
+        height: 36px;
+        background-image: url(../images/footer/fb-tw-insta-icons.svg);
+        background-size: 110px 65px;
+        background-position: -37px -15px; }
+      #footer-wrapper footer ul .insta-icon {
+        width: 36px;
+        height: 36px;
+        background-image: url(../images/footer/fb-tw-insta-icons.svg);
+        background-size: 110px 65px;
+        background-position: -74px -15px; }
+    #footer-wrapper footer .email-signup {
+      display: none;
+      position: relative;
+      margin-top: 20px;
+      width: 100%;
+      text-align: center;
+      /*border: 1px solid red;*/ }
+      #footer-wrapper footer .email-signup .cover {
+        visibility: hidden;
+        position: absolute;
+        top: 35px;
+        right: 0px;
+        left: 50%;
+        margin-left: -97px;
+        width: 193px;
+        height: 99px;
+        background: rgba(0, 0, 0, 0.8);
+        background-image: url(../images/footer/loading-spinner.gif);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 25px 25px;
+        z-index: 1; }
+      #footer-wrapper footer .email-signup #newsletter-signup-form .thank-you {
+        visibility: hidden;
+        position: absolute;
+        top: 42px;
+        width: 100%;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 700;
+        font-style: normal;
+        font-style: normal;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 21px;
+        text-align: center;
+        background: none; }
+      #footer-wrapper footer .email-signup #newsletter-signup-form .text {
+        position: relative;
+        top: -30px;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 300;
+        font-style: normal;
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.75);
+        text-align: center;
+        line-height: 20px; }
+      #footer-wrapper footer .email-signup #newsletter-signup-form .email-text {
+        position: absolute;
+        top: 40px;
+        width: 183px;
+        height: 27px;
+        left: 50%;
+        margin-left: -92px;
+        background: #262626;
+        border: none;
+        padding-left: 10px;
+        color: #ffffff; }
+      #footer-wrapper footer .email-signup #newsletter-signup-form .country-dropdown {
+        visibility: hidden;
+        position: relative;
+        top: 70px;
+        width: 183px;
+        height: 27px;
+        background: #4a4a4a;
+        color: #ababab;
+        border: none;
+        padding-left: 10px;
+        border: 0px;
+        outline: 0px;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0px;
+        background-image: url(../images/footer/dropdown-menu-arrow.png);
+        background-size: 9px 11px;
+        background-repeat: no-repeat;
+        background-position: 168px 8px; }
+      #footer-wrapper footer .email-signup #newsletter-signup-form .submit-btn {
+        visibility: hidden;
+        position: relative;
+        top: 33px;
+        width: 183px;
+        height: 29px;
+        border: 2px solid #00aed6;
+        cursor: pointer;
+        background: none;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 700;
+        font-style: normal;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        text-align: center;
+        -webkit-transition: color 200ms ease-out 0;
+        -moz-transition: color 200ms ease-out 0;
+        -o-transition: color 200ms ease-out 0;
+        transition: color 200ms ease-out 0; }
+        #footer-wrapper footer .email-signup #newsletter-signup-form .submit-btn:hover {
+          color: #00aed6; }
+        #footer-wrapper footer .email-signup #newsletter-signup-form .submit-btn p {
+          font-family: 'Gotham SSm A', 'Gotham SSm B';
+          font-weight: 700;
+          font-style: normal;
+          color: rgba(255, 255, 255, 0.7);
+          font-size: 14px;
+          text-align: center;
+          margin-top: 6px;
+          -webkit-transition: all 200ms ease-out 0;
+          -moz-transition: all 200ms ease-out 0;
+          -o-transition: all 200ms ease-out 0;
+          transition: all 200ms ease-out 0; }
+      #footer-wrapper footer .email-signup #newsletter-signup-form .errorMessage {
+        position: absolute;
+        top: 140px;
+        width: 100%;
+        font-family: 'Gotham SSm A', 'Gotham SSm B';
+        font-weight: 400;
+        font-style: normal;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 12px;
+        text-align: center; }
+      #footer-wrapper footer .email-signup .errorBorder {
+        border: 1px dotted #00aed6; }
+    #footer-wrapper footer .copyright-text {
+      width: 100%;
+      margin: 0 auto;
+      margin-top: 70px;
+      text-align: center;
+      font-family: 'Gotham SSm A', 'Gotham SSm B';
+      font-weight: 300;
+      font-style: normal;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.5); }

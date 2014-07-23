@@ -1,0 +1,1572 @@
+$light-blue: #00aed6;
+$opaque-white: #ffffff;
+$transparent-white: rgba(255,255,255,0.75);
+
+$header1-size: 36px;
+$p-text-size:14px;
+
+$minPageWidth: 730px;
+$minPageHeight: 668px;
+
+$maxPageWidth: 1600px;
+$maxContentWidth: 1200px;
+$mainNavHeight: 92px;
+
+$navBreakpoint: 1100px;
+
+/* MIXINS */
+
+@mixin GothamBold {
+  font-family: 'Gotham SSm A', 'Gotham SSm B'; font-weight: 700; font-style: normal;
+}
+
+@mixin GothamBook {
+  font-family: 'Gotham SSm A', 'Gotham SSm B'; font-weight: 400; font-style: normal;
+}
+
+@mixin GothamLight {
+  font-family: 'Gotham SSm A', 'Gotham SSm B'; font-weight: 300; font-style: normal;
+}
+
+@mixin GothamExtraLight {
+  font-family: 'Gotham SSm A', 'Gotham SSm B'; font-weight: 200; font-style: normal;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow($hOffset, $vOffset, $blur, $spread, $color) {
+	-webkit-box-shadow: $hOffset $vOffset $blur $spread $color;
+	-moz-box-shadow:    $hOffset $vOffset $blur $spread $color;
+	box-shadow:         $hOffset $vOffset $blur $spread $color;
+}
+
+@mixin transition($property, $speed, $ease, $delay) {
+  -webkit-transition: $property $speed $ease $delay;
+  -moz-transition:    $property $speed $ease $delay;
+  -o-transition:      $property $speed $ease $delay;
+  transition:         $property $speed $ease $delay;
+}
+
+@mixin opacity($amount) {
+  -moz-opacity: $amount;
+  -khtml-opacity: $amount;
+  opacity: $amount;
+}
+
+// generic transform
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+// scale
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+// translate
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+}
+// skew
+@mixin skew ($x, $y) {
+  @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+//transform origin
+@mixin transform-origin ($origin) {
+  moz-transform-origin: $origin;
+  -o-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  -webkit-transform-origin: $origin;
+  transform-origin: $origin;
+}
+
+@mixin no-select() {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  /* No support for these yet, use at own risk */
+  -o-user-select: none;
+  user-select: none;
+}
+
+/* LET THE STYLES BEGIN */
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  font-weight:normal;
+  -webkit-font-smoothing: antialiased;
+ }
+
+html {
+	overflow:hidden;
+    background-color: #000000;
+}
+
+body {
+  overflow:hidden;
+  background-color: #000000;
+}
+
+
+
+
+/* RESIZE WINDOW MESSAGE */
+#resize-window-message {
+  visibility: hidden;
+  position: fixed;
+  width:100%;
+  height:100%;
+  background-color:#000000;
+  z-index: 100;
+
+  .logo {
+    position: relative;
+    width:100px;
+    height:36px;
+    margin:0 auto;
+    top:50%;
+    margin-top:-18px;
+
+    background-image: url(../images/footer/logo-lytro-illum-stacked.svg);
+    background-size: 100px 36px;
+  }
+
+  .message {
+    position: relative;
+    @include GothamLight;
+    color:#ffffff;
+    font-size:16px;
+    text-align: center;
+    width: 100%;
+    top:50%;
+    margin-top:20px;
+
+    img {
+      vertical-align: middle;
+    }
+  }
+}
+/* end RESIZE WINDOW MESSAGE */
+
+
+
+
+/* MAIN NAV */
+$main-nav-btn-color:rgba(255, 255, 255, 0.7);
+
+nav#main-nav {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:$mainNavHeight;
+	background-color:rgba(32, 32, 32, 0.75);
+	z-index:12;
+
+    #main-nav-inner {
+      position: relative;
+      max-width: 1200px;
+      min-width: 730px;
+      margin:0 auto;
+
+      #logo {
+        position: absolute;
+        top:30px;
+        left:30px;
+        width: 403px;
+        height:40px;
+        background-image: url(../images/main-nav/logo-lytro-illum.svg);
+        background-size: 403px 40px;
+        background-position: 0px 0px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+
+        a {
+          display:block;
+          width:100%;
+          height:100%;
+        }
+      }
+
+
+
+      #main-btns {
+        position: relative;
+        top: 40px;
+        float:right;
+
+        @media only screen and (max-width: $navBreakpoint) {
+          display:none;
+        }
+
+        #btn-highlight {
+          display:none;
+          position: absolute;
+          top: 23px;
+          left: 20px;
+          width:100px;
+          height:2px;
+          background-color:$light-blue;
+        }
+
+        li {
+          float:left;
+          @include GothamBold;
+          color:$main-nav-btn-color;
+          font-size:16px;
+          margin-left:22px;
+          cursor:default;
+          @include transition(all, 200ms, ease-out, 0);
+          @include no-select();
+
+          &:hover {
+            color:$light-blue;
+          }
+
+          a {
+            @include GothamBold;
+            color:$main-nav-btn-color;
+            font-size:16px;
+            @include transition(all, 200ms, ease-out, 0);
+            @include no-select();
+            text-decoration: none;
+
+            &:hover {
+              color:$light-blue;
+            }
+          }
+        }
+
+        .selected {
+          color:$light-blue;
+        }
+      }
+
+      #buy-now-btn {
+        position: relative;
+        top:28px;
+        float:right;
+        height:38px;
+        border:2px solid $light-blue;
+        margin-left:34px;
+        cursor: pointer;
+
+        &:hover > a > p {
+            color:$light-blue;
+        }
+
+        a {
+
+          text-decoration:none;
+
+          p {
+            @include GothamBold;
+            color:$main-nav-btn-color;
+            font-size:16px;
+            margin:10px 19px 12px 19px;
+            @include transition(all, 200ms, ease-out, 0);
+          }
+        }
+
+      }
+
+      #extra-menu-btn {
+        position: relative;
+        top:37px;
+        float:right;
+        width: 29px;
+        height:20px;
+        margin-left:80px;
+        margin-right:58px;
+        cursor: pointer;
+
+        @media only screen and (max-width: $navBreakpoint) {
+          margin-left:40px;
+          margin-right:65px;
+        }
+
+
+
+        .extra-menu-btn-hitarea {
+
+          &:hover > .extra-menu-btn-fill {
+            fill:$light-blue;
+
+          }
+
+          .extra-menu-btn-fill {
+            @include transition(all, 200ms, ease-out, 0);
+          }
+        }
+
+
+
+        #extra-menu {
+          display:none;
+          position: absolute;
+          top:40px;
+          left:50%;
+          margin-left:-69px;
+          width: 138px;
+
+          background-color: rgba(55,55,55,0.5);
+          /*pointer-events:none;*/
+
+          #extra-menu-top-arrow {
+            position: absolute;
+            top:-14px;
+            left:50%;
+            margin-left:-14px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 14px 14px 14px;
+            border-color: transparent transparent rgba(55,55,55,0.5) transparent;
+          }
+        }
+
+        ul {
+
+          margin:20px;
+
+          li, li a {
+            @include GothamBold;
+            font-size: 16px;
+            color: $opaque-white;
+            margin-bottom: 17px;
+            cursor: pointer;
+            text-decoration: none;
+
+            &:hover {
+              color:$light-blue;
+              @include transition(all, 200ms, ease-out, 0);
+            }
+          }
+
+          .main-btns-responsive {
+            display:none;
+
+            @media only screen and (max-width: $navBreakpoint) {
+              display:block;
+            }
+          }
+        }
+      }
+    }
+
+
+}
+
+/* end MAIN NAV */
+
+
+
+
+
+/* DOT NAV */
+$dot-nav-dot-bg-color: #4f4f4f;
+$black: #000;
+
+nav#dot-nav {
+	position:absolute;
+	/*right:0px;*/
+    right:-156px;
+	top:50%;
+	width:106px;
+	height:266px;
+    margin-top:-133px;
+	z-index:11;
+
+	#dot-highlight {
+		position:absolute;
+		top:-3px;
+		/*left:-3px;*/
+        left:300px;
+		width:20px;
+		height:20px;
+		@include border-radius(20px);
+		background-color: $black;
+        border:4px solid $light-blue;
+		z-index:3;
+        pointer-events: none;
+	}
+
+	ol.list {
+
+        li:first-child {
+          display:none;
+        }
+
+		li {
+			position: relative;
+			list-style:none;
+			margin-bottom:0px;
+
+            .label {
+              visibility: hidden;
+              position: absolute;
+              right: 117px;
+              width: 400px;
+              text-align: right;
+              color:#fff;
+
+              @include GothamLight;
+              font-size: 12px;
+              @include no-select();
+              cursor: default;
+
+              margin-top:2px;
+
+              @include transition(all, 200ms, ease-out, 0);
+              text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+            }
+
+            .hit-area {
+              display:block;
+              position: relative;
+              top: -14px;
+              left: -14px;
+              width:40px;
+              height:40px;
+              @include border-radius(30px);
+              /*background-color: rgba(255,240,2,0.5);*/
+              border:0px solid #FFFFFF;
+              cursor:pointer;
+
+              &:hover > .dot {
+                background-color:$light-blue;
+              }
+
+              .dot {
+                display:block;
+                position:absolute;
+                top: 14px;
+                left: 13px;
+                width:15px;
+                height:15px;
+                @include border-radius(10px);
+                background-color: $dot-nav-dot-bg-color;
+                border:0px solid #FFFFFF;
+                pointer-events:none;
+
+                @include transition(all, 200ms, ease-out, 0);
+              }
+            }
+
+
+
+
+		}
+	}
+}
+
+/* end DOT NAV */
+
+
+
+
+/* INTRO VIDEO
+video::-webkit-media-controls {
+  //display:none !important;
+}*/
+
+#intro-video {
+  position:absolute;
+  height:100%;
+  width:100%;
+  overflow: hidden;
+  z-index: 1;
+
+  #welcome {
+
+    position:absolute;
+    width:100%;
+    margin:0 auto;
+    text-align: center;
+    top:45%;
+    z-index: 10;
+
+    #welcome-text {
+      position:relative;
+      width:100%;
+      margin:0 auto;
+      text-align: center;
+      @include GothamLight;
+      font-size:65px;
+      color:$opaque-white;
+
+      top:0%;
+
+      @include no-select();
+      cursor: default;
+      pointer-events:none;
+      z-index: 10;
+
+      @media only screen and (min-width: 1400px) {
+        font-size:85px;
+      }
+
+
+    }
+
+    #watch-video-btn {
+      position: relative;
+      margin-top:27px;
+      left:50%;
+      margin-left:-81px;
+      height:38px;
+      width:162px;
+      border:2px solid $light-blue;
+      cursor: pointer;
+      z-index: 11;
+      background-color: rgba(255,255,255,0);
+
+      &:hover {
+        background-color: rgba(255,255,255,0.5);
+      }
+
+      &:hover > p {
+        color:$light-blue;
+      }
+
+      p {
+        @include GothamBold;
+        color:$main-nav-btn-color;
+        font-size:14px;
+        margin:10px 19px 12px 19px;
+        @include transition(all, 200ms, ease-out, 0);
+      }
+    }
+  }
+
+  #video-close-btn {
+    display:none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    /*background-color:rgba(32, 32, 32, 0.75);*/
+    background-image: url(../images/page-homepage-video/video-close-btn.svg);
+    background-size: 30px 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  #video-audio-btn {
+    display:none;
+    position: absolute;
+    bottom:20px;
+    right:20px;
+    width: 40px;
+    height: 30px;
+
+    /*background-color:rgba(32, 32, 32, 0.75);*/
+    background-image: url(../images/page-homepage-video/audio-icon.svg);
+    background-size: 38px 61px;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  #video-wrap {
+    position: absolute;
+    z-index: 0;
+    min-width: $minPageWidth;
+  }
+
+  #explore-btn {
+    position: absolute;
+    bottom:-94px;
+    width:100%;
+    height:94px;
+
+    /*background-image: url(../images/explore-illum.jpg);
+    background-size: 1600px 94px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-color: #050505;*/
+
+    cursor: pointer;
+
+    text-align: center;
+    background-color: rgba(0,0,0,1);
+
+    img {
+      display: inline-block;
+      position: relative;
+      top:26px;
+      margin-right:13px;
+    }
+
+    h1 {
+      display: inline-block;
+      position: relative;
+      @include GothamLight;
+      font-size:26px;
+      color:$transparent-white;
+      top:13px;
+    }
+  }
+}
+
+/* end INTRO VIDEO */
+
+
+
+
+/* Animation */
+
+#animation {
+  visibility: hidden;
+  position: absolute;
+  width:100%;
+  height:100%;
+  min-width: 730px;
+  min-height: 602px;
+  top:0px;
+  background-color: #000000;
+  z-index: 2;
+
+  #animation-intro-video {
+    position: absolute;
+    z-index: 1;
+    min-width: 1024px;
+    width:100%;
+    height:100%;
+
+
+
+    video {
+      position: relative;
+      min-width: 1024px;
+      /*width:100%;*/
+      height:100%;
+      margin: 0 auto;
+      /*border:1px solid yellow;*/
+
+    }
+  }
+
+  #animation-video {
+    position: absolute;
+    z-index: 0;
+    width:100%;
+    height:100%;
+    text-align: center;
+    /*border: 1px solid yellow;*/
+    padding-right: 100px;
+    padding-left: 100px;
+
+
+
+    video {
+      position: relative;
+      margin: 0 auto;
+      height:100%;
+      width:100%;
+
+      @media only screen and (min-height: 0px) {
+        height: 50%;
+        margin-top: 120px;
+      }
+
+      @media only screen and (min-height: 600px) {
+        height: 73%;
+        margin-top: 100px;
+      }
+
+      @media only screen and (min-height: 700px) {
+        height: 78%;
+        margin-top: 80px;
+      }
+
+      @media only screen and (min-height: 800px) {
+        height: 90%;
+        margin-top: 25px;
+      }
+
+      @media only screen and (min-height: 900px) {
+        height:100%;
+        margin-top: 0px;
+      }
+    }
+  }
+
+  .animation-frame {
+    visibility: hidden;
+    position: absolute;
+    width:100%;
+    height:100%;
+
+    .animation-sprites-holder {
+      position: absolute;
+      width:100%;
+      height:100%;
+      /*border:5px solid yellow;*/
+     /* background-image:url(../images/design-elements/blue-down-arrow.svg);
+      background-position: center;
+      background-repeat: no-repeat;*/
+      z-index: 1;
+
+      #frame-2-sprite-1 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -739px;
+        margin-top: -270px;
+
+        @media only screen and (min-height: 0px) {
+          top: 47%;
+          margin-left: -601px;
+          margin-top: -246px;
+          -webkit-transform: scale(0.5);
+        }
+
+        @media only screen and (min-height: 600px) {
+          top: 47%;
+          margin-left: -637px;
+          margin-top: -258px;
+          -webkit-transform: scale(0.6);
+        }
+
+        @media only screen and (min-height: 700px) {
+          top: 47%;
+          margin-left: -739px;
+          margin-top: -260px;
+          -webkit-transform: scale(0.9);
+        }
+
+        @media only screen and (min-height: 800px) {
+          top: 50%;
+          margin-left: -739px;
+          margin-top: -270px;
+          -webkit-transform: scale(1);
+        }
+
+        @media only screen and (min-height: 900px) {
+
+        }
+      }
+    }
+
+    .title {
+      position: absolute;
+      width:100%;
+      top: 15%;
+      @include GothamLight;
+      font-size:40px;
+      text-align: center;
+      color:$opaque-white;
+
+      @media only screen and (min-height: 0px) {
+        top: 18%;
+      }
+
+      @media only screen and (min-height: 600px) {
+        top: 17%;
+      }
+
+      @media only screen and (min-height: 700px) {
+        top: 16%;
+      }
+
+      @media only screen and (min-height: 800px) {
+        top: 15%;
+      }
+
+      .book {
+        @include GothamBook;
+        color: $light-blue;
+      }
+    }
+
+    .content-bottom-container {
+
+      position: absolute;
+      bottom:50px;
+      width:100%;
+      height: auto;
+
+      @media only screen and (min-height: 600px) {
+        bottom:10px;
+      }
+
+      @media only screen and (min-height: 700px) {
+        bottom:25px;
+      }
+
+      @media only screen and (min-height: 800px) {
+        bottom:40px;
+      }
+      /*border:1px solid yellow;*/
+
+      .title {
+        position: relative;
+        width:100%;
+        margin-bottom:5px;
+        @include GothamLight;
+        font-size:$header1-size;
+        text-align: center;
+        color:$opaque-white;
+
+        .blue {
+          color: $light-blue;
+        }
+
+        @media only screen and (min-height: 600px) {
+          margin-bottom:10px;
+        }
+
+        @media only screen and (min-height: 700px) {
+          margin-bottom:15px;
+        }
+
+        @media only screen and (min-height: 800px) {
+          margin-bottom:20px;
+        }
+      }
+
+      .sub-title {
+        position: relative;
+        width:100%;
+        @include GothamExtraLight;
+        font-size:25px;
+        text-align: center;
+        color:$opaque-white;
+        margin-bottom: 5px;
+
+        @media only screen and (min-height: 600px) {
+          margin-bottom:5px;
+          font-size:29px;
+        }
+
+        @media only screen and (min-height: 700px) {
+          margin-bottom:10px;
+          font-size:32px;
+        }
+
+        @media only screen and (min-height: 800px) {
+          margin-bottom:15px;
+          font-size:36px;
+        }
+
+        .book {
+          @include GothamBook;
+          color: $light-blue;
+        }
+      }
+
+      .divider {
+        @extend .one-px-divider;
+        position: relative;
+      }
+
+      .text {
+        position: relative;
+        margin:0 auto;
+        margin-top:5px;
+        max-width: 820px;
+        height: auto;
+
+        @include GothamLight;
+        font-size: 14px;
+        text-align: center;
+        line-height: 27px;
+        color: $transparent-white;
+
+        @media only screen and (min-height: 600px) {
+          margin-top:10px;
+        }
+
+        @media only screen and (min-height: 700px) {
+          margin-top:15px;
+        }
+
+        @media only screen and (min-height: 800px) {
+          margin-top:20px;
+        }
+      }
+    }
+  }
+}
+
+.one-px-divider {
+  position: relative;
+  height: 1px;
+  width:80%;
+  left:0px;
+  right:0px;
+  margin:0 auto;
+  background-color: #000000;
+  background-image:
+    linear-gradient(
+        to right,
+        rgba(0,0,0,0),
+        #8b8b8b,
+        #8b8b8b,
+        rgba(0,0,0,0)
+    );
+}
+/* end ANIMATION */
+
+
+
+
+/* STATIC PAGE STYLES */
+.margin-top-mainNavHeight {
+  margin-top: $mainNavHeight;
+}
+
+.padding-top-30 {
+  padding-top:30px;
+}
+
+.dark-radial-bg {
+  background: url(../images/design-elements/dark-radial-bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.static-page-content-wrapper {
+
+  overflow: hidden;
+  min-width: $minPageWidth;
+  background-repeat: no-repeat;
+  
+
+
+  .software-page-content {
+    position: relative;
+    min-width: $minPageWidth;
+    max-width: $maxPageWidth;
+    margin:0 auto;
+    /*border:1px solid red;*/
+    /*z-index: 13;*/
+
+    /*---------------*/
+    /*---------------*/
+    /* SOFTWARE PAGE */
+    /*---------------*/
+    /*---------------*/
+    h1 {
+      width:100%;
+      top: 189px;
+      @include GothamLight;
+      font-size:$header1-size;
+      text-align: center;
+      color:$opaque-white;
+      margin-bottom:18px;
+    }
+
+    h2 {
+      width:100%;
+      top: 189px;
+      @include GothamLight;
+      font-size:24px;
+      text-align: center;
+      color:$opaque-white;
+      margin-bottom:18px;
+    }
+
+    .divider {
+      height: 1px;
+      width:100%;
+      left:0px;
+      right:0px;
+      margin:0 auto;
+      background-color: #000000;
+      background-image:
+        linear-gradient(
+            to right,
+            rgba(0,0,0,0),
+            #808080,
+            #808080,
+            rgba(0,0,0,0)
+        );
+    }
+
+    p {
+      @include GothamLight;
+      font-size: $p-text-size;
+      text-align: center;
+      line-height: 27px;
+      color: $transparent-white;
+      margin:0 auto;
+      margin-top:20px;
+      width:820px;
+    }
+
+    #download-btn-holder {
+
+      width:235px;
+      height:40px;
+      margin:0 auto;
+      margin-top:35px;
+
+      .download-btn {
+        display: block;
+        float: none;
+        height:40px;
+        @include GothamBold;
+        font-size: 14px;
+        color:$opaque-white;
+        background-color: $light-blue;
+        min-width: 235px;
+        text-align: center;
+        @include border-radius(10px);
+        padding:13px;
+        cursor: pointer;
+        @include transition(all, 200ms, ease-out, 0);
+
+        &:hover {
+          background-color: #ffffff;
+          color:$light-blue;
+        }
+      }
+
+      .float-left {
+        float:left;
+      }
+
+      .float-right {
+        float:right;
+      }
+    }
+
+
+
+    #carousel-top {
+
+      position: relative;
+      margin:0 auto;
+      margin-top:45px;
+      width:960px;
+      height:400px;
+      
+      
+      /*border: 1px solid red;*/
+
+      #web {
+        background-image: url(../images/page-software/web-hero.jpg);
+        background-size: 1600px 649px;
+        width: 900px;
+        height: 400px;
+        padding: 20px;
+      }
+
+      #android {
+        background-image: url(../images/page-software/android-hero.jpg);
+        background-size: 1600px 649px;
+        width: 900px;
+        height: 400px;
+        padding: 20px;
+
+      }
+
+      .arrow-left {
+        display:none;
+        position: absolute;
+        top:140px;
+        left:-125px;
+        width:81px;
+        height:139px;
+        background-image: url(../images/design-elements/chevron-thin-left.svg);
+        background-size: 71px 139px;
+        background-repeat: no-repeat;
+        background-position: 10px 0px;
+        cursor: pointer;
+        //@include transition(all, 500ms, ease-out, 0);
+
+        &:hover {
+          /*background-position:-71px;*/
+        }
+      }
+
+      .arrow-right {
+        position: absolute;
+        top:140px;
+        right:-125px;
+        width:81px;
+        height:139px;
+        background-image: url(../images/design-elements/chevron-thin-right.svg);
+        background-size: 71px 139px;
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+        cursor: pointer;
+        //@include transition(all, 500ms, ease-out, 0);
+
+        &:hover {
+          /*background-position:71px;*/
+        }
+      }
+
+      .carousel-images-holder {
+
+        position: absolute;
+        width: 900px;
+        height: 622px;
+        top: 14px;
+        left: 46px;
+        font: white;
+        /*border: 1px solid red;*/
+
+        overflow: hidden;
+
+        /*background-color: #ff0000;*/
+
+        ul {
+
+          position: absolute;
+          list-style: none;
+
+          li {
+            float:left;
+          }
+
+          li img {
+            width:511px;
+            height:622px;
+          }
+        }
+      }
+
+    }
+
+    #carousel-top-text {
+      min-height:100px;
+    }
+
+    #carousel-devices {
+      @extend #carousel-top;
+      background-image: none;
+      height: 522px;
+      margin-bottom:10px;
+      width:620px;
+
+        .carousel-images-holder {
+
+          position: absolute;
+          width: 492px;
+          height: 361px;
+          top: 21px;
+          left: 21px;
+
+          overflow: hidden;
+
+          ul {
+
+            position: absolute;
+            list-style: none;
+
+            li {
+              float:left;
+            }
+
+            li img {
+              width:492px;
+              height:361px;
+            }
+          }
+        }
+    }
+
+    #carousel-devices-text {
+      min-height:100px;
+    }
+
+    #app-store-btn {
+      width:169px;
+      height:51px;
+
+      margin:0 auto;
+      margin-bottom:75px;
+    }
+  }
+  /*------end------*/
+  /*---------------*/
+  /* SOFTWARE PAGE */
+  /*---------------*/
+  /*---------------*/
+
+
+
+  /*---------------*/
+  /*---------------*/
+  /*  SPECS PAGE   */
+  /*---------------*/
+  /*---------------*/
+  .specs-page-content {
+
+    .specs-item {
+
+      position: relative;
+      width: 630px;
+      height: auto;
+      margin:0 auto;
+      margin-bottom:30px;
+
+      .spec-title {
+
+        float:left;
+        width:215px;
+
+        img {
+          width:100%;
+          height:auto;
+        }
+      }
+
+      .spec-info {
+
+        float: left;
+        margin-left:20px;
+        margin-top: 2px;
+
+        h1 {
+          @include GothamBook;
+          font-size: 18px;
+          color: $opaque-white;
+          text-align: left;
+          margin-bottom:20px;
+        }
+
+        h2 {
+          @include GothamBook;
+          font-size: 14px;
+          color: $opaque-white;
+          text-align: left;
+          margin-bottom: 7px;
+        }
+
+        ul {
+
+          margin-left:20px;
+          margin-bottom: 20px;
+          max-width: 360px;
+
+          li {
+            @include GothamLight;
+            font-size: 14px;
+            color: $opaque-white;
+            text-align: left;
+            margin-bottom: 6px;
+            line-height: 23px;
+          }
+        }
+      }
+
+      .divider {
+        @extend .one-px-divider;
+        opacity: 0.50;
+      }
+    }
+  }
+  /*------end------*/
+  /*---------------*/
+  /*  SPECS PAGE   */
+  /*---------------*/
+  /*---------------*/
+
+
+
+
+}
+
+#illum-app-divider {
+  position: relative;
+  width:100%;
+  height:94px;
+  text-align: center;
+  background-color: rgba(255,255,255,0.06);
+  cursor: pointer;
+
+  img {
+    display: inline-block;
+    position: relative;
+    top:26px;
+    margin-right:13px;
+  }
+
+  h1 {
+    display: inline-block;
+    position: relative;
+    @include GothamLight;
+    font-size:26px;
+    color:$opaque-white;
+    top:13px;
+  }
+}
+
+#footer-reviews-wrapper {
+
+  width:100%;
+  height:270px;
+  background-color: #131313;
+  position: relative;
+
+  #footer-reviews {
+    min-width: $minPageWidth;
+    max-width: $maxPageWidth;
+    margin:0 auto;
+
+    .review-item {
+      float:left;
+      width: 33.33%;
+      height:270px;
+      /*border:1px solid red;*/
+      text-align: center;
+      padding-top:50px;
+
+      p {
+        @include GothamBook;
+        font-size: 16px;
+        color: $opaque-white;
+        opacity: 0.5;
+        margin:20px;
+      }
+    }
+  }
+}
+
+#footer-wrapper {
+
+  width:100%;
+  height:210px;
+  position: relative;
+
+  footer {
+    position: relative;
+    min-width: 1100px;
+    max-width: $maxPageWidth;
+    height:210px;
+    margin:0 auto;
+    background-image: url(../images/footer/footer-bg.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    ul {
+      position: absolute;
+      top:70px;
+      left:100px;
+
+
+      li {
+        list-style: none;
+        float:left;
+        margin-left:20px;
+        cursor: pointer;
+        @include opacity(0.5);
+        @include transition(all, 200ms, ease-out, 0);
+
+        &:hover {
+          @include opacity(1);
+        }
+      }
+
+      .fb-icon {
+        width:29px;
+        height:27px;
+        background-image: url(../images/footer/fb-tw-insta-icons.svg);
+        background-size: 86px 28px;
+        background-position: 0px 0px;
+      }
+
+      .tw-icon {
+        width:29px;
+        height:27px;
+        background-image: url(../images/footer/fb-tw-insta-icons.svg);
+        background-size: 86px 28px;
+        background-position: -29px 0px;
+      }
+
+      .insta-icon {
+        width:29px;
+        height:27px;
+        background-image: url(../images/footer/fb-tw-insta-icons.svg);
+        background-size: 86px 28px;
+        background-position: -57px 0px;
+      }
+    }
+
+    .logo {
+      position: relative;
+      width:109px;
+      height:39px;
+      margin:0 auto;
+      top:65px;
+      cursor: pointer;
+
+      background-image: url(../images/footer/logo-lytro-illum-stacked.svg);
+      background-size: 109px 39px;
+      @include opacity(0.5);
+      @include transition(all, 200ms, ease-out, 0);
+
+      &:hover {
+        @include opacity(1);
+      }
+
+      a {
+        display:block;
+        width:100%;
+        height:100%;
+      }
+    }
+
+    .copyright-text {
+      position: relative;
+      width:100%;
+      margin:0 auto;
+      top:115px;
+      text-align: center;
+
+      @include GothamLight;
+      font-size: 10px;
+      color:$transparent-white;
+
+    }
+
+    .email-signup {
+      display:none;
+      position: absolute;
+      top:75px;
+      right:115px;
+
+      .cover {
+        visibility: hidden;
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 193px;
+        height: 99px;
+        background: rgba(0, 0, 0, 0.8);
+        background-image: url(../images/footer/loading-spinner.gif);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 25px 25px;
+        z-index:1;
+      }
+
+      .thank-you {
+        visibility: hidden;
+        position: absolute;
+        top: 2px;
+        left: 113px;
+        width: 183px;
+        @include GothamBold;
+        font-style: normal;
+        color: $transparent-white;
+        font-size: 21px;
+        text-align: left;
+        background: none;
+      }
+
+      .text {
+        float:right;
+        @include GothamLight;
+        font-size: 10px;
+        color:$transparent-white;
+        text-align: right;
+        margin-right:10px;
+        padding-top: 0px;
+        line-height: 15px;
+      }
+      .email-text {
+        float:right;
+        width:183px;
+        height:27px;
+        background: #4a4a4a;
+        color:#ababab;
+        border:none;
+        padding-left:10px;
+        border:0px;
+        outline:0px;
+        box-sizing: border-box;
+      }
+      .country-dropdown {
+        visibility: hidden;
+        position: absolute;
+        right: 0px;
+        top: 30px;
+        width:183px;
+        height:27px;
+        background: #4a4a4a;
+        color:#ababab;
+        border:none;
+        padding-left:10px;
+        border:0px;
+        outline:0px;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0px;
+        background-image: url(../images/footer/dropdown-menu-arrow.png);
+        background-size: 9px 11px;
+        background-repeat: no-repeat;
+        background-position:168px 8px;
+      }
+
+      .submit-btn {
+        visibility: hidden;
+        position: absolute;
+        top:60px;
+        right:0px;
+        width:183px;
+        height:29px;
+        border:2px solid $light-blue;
+        cursor: pointer;
+        background:none;
+        @include GothamBold;
+        color:$main-nav-btn-color;
+        font-size:14px;
+        text-align: center;
+        @include transition(color, 200ms, ease-out, 0);
+
+        &:hover {
+          color:$light-blue;
+        }
+
+        p {
+          @include GothamBold;
+          color:$main-nav-btn-color;
+          font-size:14px;
+          text-align: center;
+          margin-top:6px;
+          @include transition(all, 200ms, ease-out, 0);
+        }
+      }
+
+      .errorMessage {
+        position: absolute;
+        top:100px;
+        right:0px;
+        width:183px;
+        @include GothamBook;
+        color:$main-nav-btn-color;
+        font-size:12px;
+        text-align: center;
+      }
+
+      .errorBorder {
+        border:1px dotted $light-blue;
+      }
+    }
+  }
+}

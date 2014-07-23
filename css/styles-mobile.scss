@@ -1,0 +1,1275 @@
+$light-blue: #00aed6;
+$title-white: #ffffff;
+$text-white: rgba(255,255,255,0.75);
+
+
+$minPageWidth: 1200px;
+$minPageHeight: 668px;
+
+$maxPageWidth: 1600px;
+$mainNavHeight: 36px;
+
+/* MIXINS */
+
+@mixin GothamBold {
+  font-family: 'Gotham SSm A', 'Gotham SSm B'; font-weight: 700; font-style: normal;
+}
+
+@mixin GothamBook {
+  font-family: 'Gotham SSm A', 'Gotham SSm B'; font-weight: 400; font-style: normal;
+}
+
+@mixin GothamLight {
+  font-family: 'Gotham SSm A', 'Gotham SSm B'; font-weight: 300; font-style: normal;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow($hOffset, $vOffset, $blur, $spread, $color) {
+	-webkit-box-shadow: $hOffset $vOffset $blur $spread $color;
+	-moz-box-shadow:    $hOffset $vOffset $blur $spread $color;
+	box-shadow:         $hOffset $vOffset $blur $spread $color;
+}
+
+@mixin transition($property, $speed, $ease, $delay) {
+  -webkit-transition: $property $speed $ease $delay;
+  -moz-transition:    $property $speed $ease $delay;
+  -o-transition:      $property $speed $ease $delay;
+  transition:         $property $speed $ease $delay;
+}
+
+@mixin opacity($amount) {
+  -moz-opacity: $amount;
+  -khtml-opacity: $amount;
+  opacity: $amount;
+}
+
+@mixin no-select() {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  /* No support for these yet, use at own risk */
+  -o-user-select: none;
+  user-select: none;
+}
+
+/* LET THE STYLES BEGIN */
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  font-weight:normal;
+  -webkit-font-smoothing: antialiased;
+ }
+
+body, html {
+    background-color: #000000;
+}
+
+.blue {
+  color: $light-blue;
+}
+
+/* PRELOADER */
+#preloader {
+  position: fixed;
+  width:100%;
+  height:100%;
+  background-color:#171717;
+  z-index: 20000000;
+
+  .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 30px;
+    margin-left: -25px;
+    margin-top: -15px;
+    text-align: center;
+    font-size: 10px;
+
+    div {
+      background-color: $light-blue;
+      height: 100%;
+      width: 6px;
+      display: inline-block;
+
+      -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+      animation: stretchdelay 1.2s infinite ease-in-out;
+    }
+
+    .rect2 {
+      -webkit-animation-delay: -1.1s;
+      animation-delay: -1.1s;
+    }
+
+    .rect3 {
+      -webkit-animation-delay: -1.0s;
+      animation-delay: -1.0s;
+    }
+
+    .rect4 {
+      -webkit-animation-delay: -0.9s;
+      animation-delay: -0.9s;
+    }
+
+    .rect5 {
+      -webkit-animation-delay: -0.8s;
+      animation-delay: -0.8s;
+    }
+  }
+
+  .preloader-sprite {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    margin-left: -44px;
+    margin-top: -47px;
+  }
+}
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+       transform: scaleY(1.0);
+       -webkit-transform: scaleY(1.0);
+     }
+}
+/* end PRELOADER */
+
+
+/* MAIN NAV */
+$main-nav-btn-color:rgba(255, 255, 255, 0.7);
+
+nav#main-nav-mobile {
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:$mainNavHeight;
+	background-color:rgba(32, 32, 32, 0.9);
+	z-index:12;
+
+    @media only screen and (min-width: 768px) {
+      font-size:45px;
+      line-height: 50px;
+      height:70px;
+
+    }
+
+      #menu-btn-mobile {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        float: left;
+        width: 55px;
+        height: 47px;
+        background-image: url(../images/main-nav/main-nav-extra-menu-btn.svg);
+        background-size: 27px 20px;
+        background-position: 8px 8px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        z-index: 2;
+
+        @media only screen and (min-width: 768px) {
+          top: 19px;
+          left: 17px;
+          width: 46px;
+          height: 32px;
+          background-size: 46px 32px;
+          background-position: 0px 0px;
+        }
+      }
+
+      #logo-mobile {
+        position: absolute;
+        top:12px;
+        left:68px;
+        width: 135px;
+        height:14px;
+        background-image: url(../images/main-nav/logo-lytro-illum.svg);
+        background-size: 135px 14px;
+        cursor: pointer;
+
+        @media only screen and (min-width: 768px) {
+          width: 440px;
+          height: 36px;
+          background-size: 440px 36px;
+          left:82px;
+          top:17px;
+        }
+      }
+
+      #buy-now-btn-mobile {
+        position: relative;
+        top:6px;
+        float:right;
+
+        height:23px;
+        margin-right:6px;
+        border:1px solid $light-blue;
+        cursor: pointer;
+
+        @media only screen and (min-width: 768px) {
+          top: 18px;
+          height: 33px;
+          margin-right: 15px;
+          border: 2px solid $light-blue;
+        }
+
+        &:hover > a > p {
+            color:$light-blue;
+        }
+
+        a {
+          text-decoration: none;
+        }
+
+        a p {
+          @include GothamBold;
+          color:$main-nav-btn-color;
+          font-size: 10px;
+          margin: 5px 10px 5px 10px;
+          @include transition(all, 200ms, ease-out, 0);
+
+          @media only screen and (min-width: 768px) {
+            font-size: 17px;
+            margin: -10px 10px 5px 10px;
+          }
+        }
+      }
+
+      #menu-mobile {
+        display:none;
+        position: absolute;
+        padding-top:$mainNavHeight;
+        top:0px;
+        left:0px;
+        bottom:0px;
+        right:0px;
+        width: 100%;
+        overflow-y: scroll;
+        z-index: 1;
+
+        background-color: rgba(55,55,55,0.5);
+        /*pointer-events:none;*/
+
+        @media only screen and (min-width: 768px) {
+          padding-top:70px;
+
+        }
+
+        ul {
+
+          /*margin:20px;*/
+
+          .title {
+            display:block;
+            width:100%;
+            @include GothamBold;
+            background-color:#181818;
+            border-bottom:1px solid #050505;
+            padding-left:42px;
+            padding-top:14px;
+            padding-bottom:14px;
+            font-size:21px;
+            color: $title-white;
+
+            @media only screen and (min-width: 768px) {
+              padding-top:0px;
+              padding-left:82px;
+            }
+          }
+
+          li {
+            display:block;
+            width:100%;
+            height:50px;
+            background-color:#000000;
+          }
+
+          li a {
+            display:block;
+            width:100%;
+            height:50px;
+            background-color:#050505;
+            border-bottom:1px solid #181818;
+
+            @include GothamLight;
+            font-size: 19px;
+            color:#ffffff;
+
+            cursor: pointer;
+            text-decoration: none;
+
+            &:hover {
+              color:$light-blue;
+              @include transition(all, 200ms, ease-out, 0);
+            }
+          }
+
+          li p, li a p {
+            padding-left:56px;
+            padding-top:15px;
+
+            @media only screen and (min-width: 768px) {
+              padding-top:0px;
+              padding-left:96px;
+            }
+          }
+        }
+      }
+}
+
+/* end MAIN NAV */
+
+
+.one-px-divider-soft-sides {
+  position: relative;
+  height: 1px;
+  width:80%;
+  left:0px;
+  right:0px;
+  margin:0 auto;
+  background-color: #000000;
+  background-image:
+    linear-gradient(
+        to right,
+        #000000,
+        #ffffff,
+        #ffffff,
+        #000000
+    );
+  @include opacity(0.4);
+}
+
+.one-px-divider {
+  position: relative;
+  height: 1px;
+  width:100%;
+  left:0px;
+  right:0px;
+  margin:0 auto;
+  background-color: #444343;
+}
+
+
+.margin-top-mainNavHeight {
+  margin-top: $mainNavHeight;
+}
+
+.padding-top-30 {
+  padding-top:30px;
+}
+
+.padding-top-60 {
+  padding-top:60px;
+}
+
+.dark-radial-bg {
+  background: url(../images/design-elements/dark-radial-bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+/*---------------*/
+/*---------------*/
+/* INDEX PAGE    */
+/*---------------*/
+/*---------------*/
+
+#index-page-content {
+
+  width: 100%;
+
+  #header {
+    position: relative;
+    width:100%;
+    margin-bottom: -2px;
+
+    h1 {
+      position: absolute;
+      width:100%;
+      top: 50%;
+      @include GothamLight;
+      font-size:27px;
+      text-align: center;
+      color:#ffffff;
+      padding-left:5px;
+      padding-right:5px;
+
+      @media only screen and (min-width: 400px) {
+        font-size:37px;
+      }
+
+      @media only screen and (min-width: 768px) {
+        font-size:60px;
+      }
+    }
+
+
+
+    img {
+      width:100%;
+    }
+  }
+
+  .thick-divider {
+    width:100%;
+    height:47px;
+    background-color: #171717;
+    text-align: center;
+
+    @media only screen and (min-width: 768px) {
+      height:70px;
+    }
+
+    img {
+      display: inline-block;
+      position: relative;
+      top:14px;
+      width:20px;
+      height:20px;
+    }
+
+    h1 {
+      display: inline-block;
+      position: relative;
+      @include GothamLight;
+      font-size:13px;
+      color:rgba(255,255,255,0.5);
+      top:9px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      h1 {
+        font-size:26px;
+        top:4px;
+      }
+
+      img {
+        display: inline-block;
+        position: relative;
+        top:15px;
+        width:40px;
+        height:40px;
+      }
+    }
+  }
+
+  img {
+    width:100%;
+  }
+
+  .title {
+    width:100%;
+    text-align: center;
+    @include GothamLight;
+    font-size: 22px;
+    line-height: 26px;
+    color:#ffffff;
+    margin-bottom:25px;
+
+    @media only screen and (min-width: 768px) {
+      font-size:45px;
+      line-height: 50px;
+    }
+  }
+
+  .text {
+    width:100%;
+    text-align: center;
+    margin: 0 auto;
+    @include GothamLight;
+    font-size: 15px;
+    color:rgba(255,255,255,0.5);
+    line-height: 24px;
+    padding: 24px 20px 24px 20px;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 25px;
+      line-height: 32px;
+    }
+  }
+
+  .section-header {
+    position: relativev;
+    width:100%;
+
+    .section-title {
+      position: relative;
+      margin-top:25px;
+      margin-bottom:25px;
+      padding: 0px 10px 0px 10px;
+      width:100%;
+
+      @include GothamBook;
+      font-size:20px;
+      color:#ffffff;
+      text-align: center;
+      line-height: 27px;
+
+      @media only screen and (min-width: 768px) {
+        font-size:45px;
+        line-height: 50px;
+      }
+    }
+
+    .section-title-smaller {
+      position: relative;
+      margin-top:25px;
+      margin-bottom:25px;
+      padding: 0px 10px 0px 10px;
+      width:100%;
+
+      @include GothamBook;
+      font-size:15px;
+      color:#ffffff;
+      text-align: center;
+      line-height: 27px;
+
+      @media only screen and (min-width: 768px) {
+        font-size:35px;
+        line-height: 50px;
+      }
+    }
+
+    img {
+      width:100%;
+    }
+
+    .section-subtitle {
+      position: relative;
+      margin-top:25px;
+      margin-bottom:25px;
+      padding: 0px 10px 0px 10px;
+      width:100%;
+
+      @include GothamLight;
+      font-size:18px;
+      color:#ffffff;
+      text-align: center;
+      line-height: 25px;
+
+      @media only screen and (min-width: 768px) {
+        font-size:40px;
+        line-height: 50px;
+      }
+    }
+
+  }
+}
+
+/*-----end-------*/
+/*---------------*/
+/* INDEX PAGE    */
+/*---------------*/
+/*---------------*/
+
+
+/*---------------*/
+/*---------------*/
+/* SOFTWARE PAGE */
+/*---------------*/
+/*---------------*/
+
+
+#software-page-content {
+
+width: 100%;
+
+#header {
+  position: relative;
+  width:100%;
+  margin-bottom: -2px;
+
+  h1 {
+    position: absolute;
+    width:100%;
+    top: 50%;
+    @include GothamLight;
+    font-size:27px;
+    text-align: center;
+    color:#ffffff;
+    padding-left:5px;
+    padding-right:5px;
+
+    @media only screen and (min-width: 400px) {
+      font-size:37px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      font-size:60px;
+    }
+  }
+
+
+
+  img {
+    width:100%;
+  }
+}
+
+.thick-divider {
+  width:100%;
+  height:47px;
+  background-color: #171717;
+  text-align: center;
+
+  @media only screen and (min-width: 768px) {
+    height:70px;
+  }
+
+  img {
+    display: inline-block;
+    position: relative;
+    top:14px;
+    width:20px;
+    height:20px;
+  }
+
+  h1 {
+    display: inline-block;
+    position: relative;
+    @include GothamLight;
+    font-size:13px;
+    color:rgba(255,255,255,0.5);
+    top:9px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    h1 {
+      font-size:26px;
+      top:4px;
+    }
+
+    img {
+      display: inline-block;
+      position: relative;
+      top:15px;
+      width:40px;
+      height:40px;
+    }
+  }
+}
+
+img {
+  width:100%;
+}
+
+.title {
+  width:100%;
+  text-align: center;
+  @include GothamLight;
+  font-size: 22px;
+  line-height: 26px;
+  color:#ffffff;
+  margin-bottom:25px;
+
+  @media only screen and (min-width: 768px) {
+    font-size:45px;
+    line-height: 50px;
+  }
+}
+
+.text {
+  width:100%;
+  text-align: center;
+  margin: 0 auto;
+  @include GothamLight;
+  font-size: 15px;
+  color:rgba(255,255,255,0.75);
+  line-height: 24px;
+  padding: 24px 20px 24px 20px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 25px;
+    line-height: 32px;
+  }
+}
+
+.section-header {
+  position: relativev;
+  width:100%;
+
+  .section-title {
+    position: relative;
+    margin-top:25px;
+    margin-bottom:0px;
+    padding: 0px 10px 0px 10px;
+    width:100%;
+
+    @include GothamBook;
+    font-size:20px;
+    color:#ffffff;
+    text-align: center;
+    line-height: 27px;
+
+    @media only screen and (min-width: 768px) {
+      font-size:45px;
+      line-height: 50px;
+      margin-top:50px;
+    }
+  }
+
+  .section-title-smaller {
+    position: relative;
+    margin-top:0px;
+    margin-bottom:25px;
+    padding: 0px 10px 0px 10px;
+    width:100%;
+
+    @include GothamBook;
+    font-size:15px;
+    color:#ffffff;
+    text-align: center;
+    line-height: 27px;
+
+    @media only screen and (min-width: 768px) {
+      font-size:35px;
+      line-height: 50px;
+    }
+  }
+
+  img {
+    width:96%;
+    margin-left:2%;
+    margin-right:2%;
+    margin-bottom:2%;
+  }
+
+  .section-subtitle {
+    position: relative;
+    margin-top:25px;
+    margin-bottom:25px;
+    padding: 0px 10px 0px 10px;
+    width:100%;
+
+    @include GothamLight;
+    font-size:18px;
+    color:#ffffff;
+    text-align: center;
+    line-height: 25px;
+
+    @media only screen and (min-width: 768px) {
+      font-size:40px;
+      line-height: 50px;
+    }
+  }
+
+}
+  #app-store-btn {
+    width:169px;
+    height:51px;
+
+    margin:0 auto;
+    margin-bottom:75px;
+  }
+}
+
+/*------end------*/
+/*---------------*/
+/* SOFTWARE PAGE */
+/*---------------*/
+/*---------------*/
+
+
+
+
+
+/*---------------*/
+/*---------------*/
+/*  SPECS PAGE   */
+/*---------------*/
+/*---------------*/
+.specs-page-content {
+
+  @media only screen and (min-width: 768px) {
+    padding-top:100px;
+  }
+
+  .specs-item {
+
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin:0 auto;
+    margin-bottom:30px;
+    text-align: center;
+
+    .spec-title {
+
+      float:left;
+      width:100%;
+
+      img {
+        width:80%;
+        height:auto;
+      }
+    }
+
+    .spec-info {
+
+      float: left;
+      margin-top: 10px;
+      text-align: left;
+      width:100%;
+      padding:0px 40px 0px 40px;
+
+      h1 {
+        @include GothamBook;
+        font-size: 18px;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom:10px;
+
+        @media only screen and (min-width: 400px) {
+          font-size:37px;
+        }
+
+        @media only screen and (min-width: 768px) {
+          font-size:60px;
+        }
+      }
+
+      h2 {
+        @include GothamBook;
+        font-size: 14px;
+        color: #ffffff;
+        text-align: left;
+        margin-bottom: 7px;
+
+        width:100%;
+
+        @media only screen and (min-width: 400px) {
+          font-size:20px;
+        }
+
+        @media only screen and (min-width: 768px) {
+          font-size:30px;
+        }
+      }
+
+      ul {
+        list-style: disc;
+        margin-bottom: 20px;
+        width: 100%;
+
+        li {
+          @include GothamLight;
+          font-size: 14px;
+          color: #ffffff;
+          margin-left:20px;
+          margin-bottom: 6px;
+          padding-right:20px;
+
+          width:100%;
+          text-align: left;
+          line-height: 18px;
+
+          @media only screen and (min-width: 400px) {
+            font-size:18px;
+            line-height: 22px;
+          }
+
+          @media only screen and (min-width: 768px) {
+            font-size:22px;
+            line-height: 26px;
+          }
+        }
+      }
+    }
+
+    .divider {
+      @extend .one-px-divider-soft-sides;
+      opacity: 0.25;
+    }
+  }
+}
+/*------end------*/
+/*---------------*/
+/*  SPECS PAGE   */
+/*---------------*/
+/*---------------*/
+
+
+
+
+
+/*----------------*/
+/*----------------*/
+/* TRAINING PAGE  */
+/*----------------*/
+/*----------------*/
+
+#training-page-content {
+
+  padding-top:60px;
+
+
+  @media only screen and (min-width: 768px) {
+    padding-top:90px;
+  }
+
+
+  h1 {
+    @include GothamLight;
+    font-size: 18px;
+    color: $title-white;
+    text-align: center;
+    margin-bottom: 30px;
+
+    @media only screen and (min-width: 768px) {
+      font-size:36px;
+
+    }
+
+  }
+
+  img {
+    width:100%;
+    padding-left:5px;
+    padding-right:5px;
+    margin-bottom:10px;
+  }
+
+  .video-tutorials-bar {
+    position: fixed;
+    bottom:0px;
+    width:100%;
+    height:47px;
+    background-color: #171717;
+    text-align: center;
+    z-index: 1;
+    cursor: pointer;
+
+    @media only screen and (min-width: 768px) {
+      height:70px;
+    }
+
+    img {
+      display: inline-block;
+      position: relative;
+      top:2px;
+      width:40px;
+      height:40px;
+    }
+
+    h1 {
+      display: inline-block;
+      position: relative;
+      @include GothamLight;
+      font-size:20px;
+      color:$text-white;
+      top:-19px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      h1 {
+        font-size:26px;
+        top: -5px;
+      }
+
+      img {
+        display: inline-block;
+        position: relative;
+        top:15px;
+        width:40px;
+        height:40px;
+      }
+    }
+  }
+
+  #training-videos-holder {
+
+    margin-top:30px;
+
+    li {
+      position: relative;
+      margin-bottom: 20px;
+
+      iframe {
+        width: 100%;
+        /*height: auto;*/
+      }
+
+      .img-holder:before {
+        position: absolute;
+        content: " ";
+        display: block;
+        width:80px;
+        height:80px;
+        top: 50%;
+        left: 50%;
+        margin-top: -40px;
+        margin-left: -40px;
+        background-image:url(../images/design-elements/blue-play-icon.svg);
+        background-size: 78px 78px;
+        background-repeat: no-repeat;
+      }
+
+      .img-holder {
+        position: relative;
+      }
+
+      h1 {
+        position: relative;
+        @include GothamLight;
+        font-size:20px;
+        color:$text-white;
+        margin: 10px;
+        text-align: left;
+      }
+
+      p {
+        @include GothamLight;
+        font-size:14px;
+
+        color: $text-white;
+        text-align: left;
+        padding: 0px 15px 0px 15px;
+        line-height: 26px;
+      }
+    }
+
+  }
+
+}
+/*------end-------*/
+/*----------------*/
+/* TRAINING PAGE  */
+/*----------------*/
+/*----------------*/
+
+#footer-wrapper {
+
+  width:100%;
+  height:334px;
+  position: relative;
+  /*background-image: url(../images-mobile/footer-bg.jpg);*/
+  background-color: #171717;
+  background-position: center top;
+  background-repeat: repeat-x;
+
+  footer {
+    position: relative;
+    width:100%;
+    height:334px;
+    padding-top:35px;
+
+    .logo {
+      width:80px;
+      height:30px;
+      margin:0 auto;
+
+      background-image: url(../images/footer/logo-lytro-illum-stacked.svg);
+      background-size: 80px 30px;
+      @include opacity(0.5);
+    }
+
+    ul {
+      width:100%;
+      text-align: center;
+      margin:0 auto;
+      margin-top:22px;
+
+      li {
+        list-style: none;
+        display: inline-block;
+        margin-left:10px;
+        margin-right:10px;
+        cursor: pointer;
+        @include opacity(0.5);
+        @include transition(all, 200ms, ease-out, 0);
+
+        &:hover {
+          @include opacity(1);
+        }
+      }
+
+      .fb-icon {
+        width:36px;
+        height:36px;
+        background-image: url(../images/footer/fb-tw-insta-icons.svg);
+        background-size: 110px 65px;
+        background-position: 0px -15px;
+      }
+
+      .tw-icon {
+        width:36px;
+        height:36px;
+        background-image: url(../images/footer/fb-tw-insta-icons.svg);
+        background-size: 110px 65px;
+        background-position: -37px -15px;
+      }
+
+      .insta-icon {
+        width:36px;
+        height:36px;
+        background-image: url(../images/footer/fb-tw-insta-icons.svg);
+        background-size: 110px 65px;
+        background-position: -74px -15px;
+      }
+    }
+
+    .email-signup {
+      display:none;
+      position: relative;
+      margin-top:20px;
+      width:100%;
+      text-align: center;
+      /*border: 1px solid red;*/
+
+
+      .cover {
+        visibility: hidden;
+        position: absolute;
+        top: 35px;
+        right: 0px;
+        left: 50%;
+        margin-left: -97px;
+        width: 193px;
+        height: 99px;
+        background: rgba(0, 0, 0, 0.8);
+        background-image: url(../images/footer/loading-spinner.gif);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 25px 25px;
+        z-index: 1;
+      }
+
+      #newsletter-signup-form {
+
+        .thank-you {
+          visibility: hidden;
+          position: absolute;
+          top: 42px;
+          width: 100%;
+          font-family: 'Gotham SSm A', 'Gotham SSm B';
+          font-weight: 700;
+          font-style: normal;
+          font-style: normal;
+          color: rgba(255, 255, 255, 0.7);
+          font-size: 21px;
+          text-align: center;
+          background: none;
+        }
+
+        .text {
+          position: relative;
+          top:-30px;
+          @include GothamLight;
+          font-size: 15px;
+          color:rgba(255,255,255,0.75);
+          text-align: center;
+          line-height: 20px;
+        }
+
+        .email-text {
+          position: absolute;
+          top:40px;
+          width:183px;
+          height:27px;
+          left: 50%;
+          margin-left: -92px;
+          background: #262626;
+          border:none;
+          padding-left:10px;
+          color:#ffffff;
+        }
+
+        .country-dropdown {
+          visibility: hidden;
+          position: relative;
+          top: 70px;
+          width:183px;
+          height:27px;
+          background: #4a4a4a;
+          color:#ababab;
+          border:none;
+          padding-left:10px;
+          border:0px;
+          outline:0px;
+          -webkit-appearance: none;
+          -webkit-border-radius: 0px;
+          background-image: url(../images/footer/dropdown-menu-arrow.png);
+          background-size: 9px 11px;
+          background-repeat: no-repeat;
+          background-position:168px 8px;
+        }
+
+        .submit-btn {
+          visibility: hidden;
+          position: relative;
+          top:33px;
+          width:183px;
+          height:29px;
+          border:2px solid $light-blue;
+          cursor: pointer;
+          background:none;
+          @include GothamBold;
+          color:$main-nav-btn-color;
+          font-size:14px;
+          text-align: center;
+          @include transition(color, 200ms, ease-out, 0);
+
+          &:hover {
+            color:$light-blue;
+          }
+
+          p {
+            @include GothamBold;
+            color:$main-nav-btn-color;
+            font-size:14px;
+            text-align: center;
+            margin-top:6px;
+            @include transition(all, 200ms, ease-out, 0);
+          }
+        }
+
+        .errorMessage {
+          position: absolute;
+          top:140px;
+          width:100%;
+          @include GothamBook;
+          color:$main-nav-btn-color;
+          font-size:12px;
+          text-align: center;
+        }
+      }
+
+
+
+      .errorBorder {
+        border:1px dotted $light-blue;
+      }
+    }
+
+    .copyright-text {
+      width:100%;
+      margin:0 auto;
+      margin-top:70px;
+      text-align: center;
+
+      @include GothamLight;
+      font-size: 10px;
+      color:rgba(255,255,255,0.5);
+
+    }
+  }
+}

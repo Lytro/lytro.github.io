@@ -1,0 +1,8 @@
+var IS_MOBILE = false;
+var IS_TABLET = false;
+
+var RELOADED = false;
+
+var WIDTH_BREAK_POINT = 850;
+var HEIGHT_BREAK_POINT = 500;
+var MAX_CONTENT_WIDTH = 1200;
