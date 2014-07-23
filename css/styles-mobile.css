@@ -112,7 +112,7 @@ nav#main-nav-mobile {
     left: 68px;
     width: 135px;
     height: 14px;
-    background-image: url(../images/main-nav/logo-lytro-illum.svg);
+    background-image: url(../images/main-nav/logo-lytro.svg);
     background-size: 135px 14px;
     cursor: pointer; }
     @media only screen and (min-width: 768px) {

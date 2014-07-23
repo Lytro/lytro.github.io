@@ -2,15 +2,15 @@ $light-blue: #00aed6;
 $opaque-white: #ffffff;
 $transparent-white: rgba(255,255,255,0.75);
 
-$header1-size: 36px;
-$p-text-size:14px;
+$header1-size: 60px;
+$p-text-size:16px;
 
 $minPageWidth: 730px;
 $minPageHeight: 668px;
 
 $maxPageWidth: 1600px;
 $maxContentWidth: 1200px;
-$mainNavHeight: 92px;
+$mainNavHeight: 0px;
 
 $navBreakpoint: 1100px;
 
@@ -140,7 +140,7 @@ body {
     top:50%;
     margin-top:-18px;
 
-    background-image: url(../images/footer/logo-lytro-illum-stacked.svg);
+    background-image: url(../images/footer/logo-lytro.svg);
     background-size: 100px 36px;
   }
 
@@ -188,7 +188,7 @@ nav#main-nav {
         left:30px;
         width: 403px;
         height:40px;
-        background-image: url(../images/main-nav/logo-lytro-illum.svg);
+        background-image: url(../images/main-nav/logo-lytro.svg);
         background-size: 403px 40px;
         background-position: 0px 0px;
         background-repeat: no-repeat;
@@ -1060,26 +1060,27 @@ video::-webkit-media-controls {
       position: relative;
       margin:0 auto;
       margin-top:45px;
-      width:960px;
-      height:400px;
+      width:1024px;
+      height:600px;
       
       
       /*border: 1px solid red;*/
 
       #web {
         background-image: url(../images/page-software/web-hero.jpg);
-        background-size: 1600px 649px;
-        width: 900px;
-        height: 400px;
-        padding: 20px;
+        background-size: 1024px 600px;
+        width: 1024px;
+        height:  600px;
+        padding-top: 80px;
       }
 
       #kernel-source {
-        background-image: url(../images/page-software/android-hero.jpg);
-        background-size: 1600px 649px;
-        width: 900px;
-        height: 400px;
-        padding: 20px;
+        background-image: url(../images/page-software/firmware-hero.jpg);
+        background-size: 1024px 600px;
+        width: 1024px;
+        height: 600px;
+        padding-top: 80px;
+        
       }
 
       .arrow-left {
@@ -1122,8 +1123,8 @@ video::-webkit-media-controls {
       .carousel-images-holder {
 
         position: absolute;
-        width: 900px;
-        height: 622px;
+        width: 1024px;
+        height: 600px;
         top: 14px;
         left: 46px;
         font: white;
@@ -1160,14 +1161,14 @@ video::-webkit-media-controls {
       background-image: none;
       height: 550px;
       margin-bottom:10px;
-      width:960px;
+      width:1030px;
         .carousel-item-holder {
           width: 430px;
           float:left;
         }
 
         #code {
-          width: 530px;
+          width: 600px;
         }
 
        
@@ -1412,6 +1413,7 @@ video::-webkit-media-controls {
         display:block;
         width:100%;
         height:100%;
+        color: #53bffd;
       }
     }
 

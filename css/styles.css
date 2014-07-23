@@ -30,7 +30,7 @@ body {
     margin: 0 auto;
     top: 50%;
     margin-top: -18px;
-    background-image: url(../images/footer/logo-lytro-illum-stacked.svg);
+    background-image: url(../images/footer/logo-lytro.svg);
     background-size: 100px 36px; }
   #resize-window-message .message {
     position: relative;
@@ -53,7 +53,7 @@ nav#main-nav {
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 92px;
+  height: 0px;
   background-color: rgba(32, 32, 32, 0.75);
   z-index: 12; }
   nav#main-nav #main-nav-inner {
@@ -67,7 +67,7 @@ nav#main-nav {
       left: 30px;
       width: 403px;
       height: 40px;
-      background-image: url(../images/main-nav/logo-lytro-illum.svg);
+      background-image: url(../images/main-nav/logo-lytro.svg);
       background-size: 403px 40px;
       background-position: 0px 0px;
       background-repeat: no-repeat;
@@ -601,7 +601,7 @@ video::-webkit-media-controls {
         font-family: 'Gotham SSm A', 'Gotham SSm B';
         font-weight: 300;
         font-style: normal;
-        font-size: 36px;
+        font-size: 60px;
         text-align: center;
         color: white; }
         #animation .animation-frame .content-bottom-container .title .blue {
@@ -680,7 +680,7 @@ video::-webkit-media-controls {
 /* end ANIMATION */
 /* STATIC PAGE STYLES */
 .margin-top-mainNavHeight {
-  margin-top: 92px; }
+  margin-top: 0px; }
 
 .padding-top-30 {
   padding-top: 30px; }
@@ -729,7 +729,7 @@ video::-webkit-media-controls {
       font-family: 'Gotham SSm A', 'Gotham SSm B';
       font-weight: 300;
       font-style: normal;
-      font-size: 36px;
+      font-size: 60px;
       text-align: center;
       color: white;
       margin-bottom: 18px; }
@@ -755,7 +755,7 @@ video::-webkit-media-controls {
       font-family: 'Gotham SSm A', 'Gotham SSm B';
       font-weight: 300;
       font-style: normal;
-      font-size: 14px;
+      font-size: 16px;
       text-align: center;
       line-height: 27px;
       color: rgba(255, 255, 255, 0.75);
@@ -800,21 +800,21 @@ video::-webkit-media-controls {
       position: relative;
       margin: 0 auto;
       margin-top: 45px;
-      width: 960px;
-      height: 400px;
+      width: 1024px;
+      height: 600px;
       /*border: 1px solid red;*/ }
       .static-page-content-wrapper .software-page-content #carousel-top #web, .static-page-content-wrapper .software-page-content #carousel-devices #web {
         background-image: url(../images/page-software/web-hero.jpg);
-        background-size: 1600px 649px;
-        width: 900px;
-        height: 400px;
-        padding: 20px; }
+        background-size: 1024px 600px;
+        width: 1024px;
+        height: 600px;
+        padding-top: 80px; }
       .static-page-content-wrapper .software-page-content #carousel-top #kernel-source, .static-page-content-wrapper .software-page-content #carousel-devices #kernel-source {
-        background-image: url(../images/page-software/android-hero.jpg);
-        background-size: 1600px 649px;
-        width: 900px;
-        height: 400px;
-        padding: 20px; }
+        background-image: url(../images/page-software/firmware-hero.jpg);
+        background-size: 1024px 600px;
+        width: 1024px;
+        height: 600px;
+        padding-top: 80px; }
       .static-page-content-wrapper .software-page-content #carousel-top .arrow-left, .static-page-content-wrapper .software-page-content #carousel-devices .arrow-left {
         display: none;
         position: absolute;
@@ -844,8 +844,8 @@ video::-webkit-media-controls {
           /*background-position:71px;*/ }
       .static-page-content-wrapper .software-page-content #carousel-top .carousel-images-holder, .static-page-content-wrapper .software-page-content #carousel-devices .carousel-images-holder {
         position: absolute;
-        width: 900px;
-        height: 622px;
+        width: 1024px;
+        height: 600px;
         top: 14px;
         left: 46px;
         font: white;
@@ -866,12 +866,12 @@ video::-webkit-media-controls {
       background-image: none;
       height: 550px;
       margin-bottom: 10px;
-      width: 960px; }
+      width: 1030px; }
       .static-page-content-wrapper .software-page-content #carousel-devices .carousel-item-holder {
         width: 430px;
         float: left; }
       .static-page-content-wrapper .software-page-content #carousel-devices #code {
-        width: 530px; }
+        width: 600px; }
     .static-page-content-wrapper .software-page-content #carousel-devices-text {
       min-height: 100px; }
     .static-page-content-wrapper .software-page-content #app-store-btn {
@@ -1048,7 +1048,8 @@ video::-webkit-media-controls {
       #footer-wrapper footer .logo a {
         display: block;
         width: 100%;
-        height: 100%; }
+        height: 100%;
+        color: #53bffd; }
     #footer-wrapper footer .copyright-text {
       position: relative;
       width: 100%;
