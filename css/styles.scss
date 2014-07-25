@@ -5,11 +5,11 @@ $transparent-white: rgba(255,255,255,0.75);
 $header1-size: 60px;
 $p-text-size:16px;
 
-$minPageWidth: 730px;
+$minPageWidth: 640px;
 $minPageHeight: 668px;
 
-$maxPageWidth: 1600px;
-$maxContentWidth: 1200px;
+$maxPageWidth: 1200px;
+$maxContentWidth: 1000px;
 $mainNavHeight: 0px;
 
 $navBreakpoint: 1100px;
@@ -885,7 +885,7 @@ video::-webkit-media-controls {
         position: relative;
         margin:0 auto;
         margin-top:5px;
-        max-width: 820px;
+        max-width: 700px;
         height: auto;
 
         @include GothamLight;
@@ -1015,7 +1015,7 @@ video::-webkit-media-controls {
       color: $transparent-white;
       margin:0 auto;
       margin-top:20px;
-      width:820px;
+      width:640px;
     }
 
     #download-btn-holder {
@@ -1062,7 +1062,7 @@ video::-webkit-media-controls {
       position: relative;
       margin:0 auto;
       margin-top:45px;
-      width:1024px;
+      width:740px;
       height:600px;
 
       a {
@@ -1075,7 +1075,7 @@ video::-webkit-media-controls {
       #web {
         background-image: url(../images/page-software/web-hero.jpg);
         background-size: 1024px 600px;
-        width: 1024px;
+        width: 700px;
         height:  600px;
         padding-top: 80px;
       }
@@ -1083,7 +1083,7 @@ video::-webkit-media-controls {
       #kernel-source {
         background-image: url(../images/page-software/firmware-hero.jpg);
         background-size: 1024px 600px;
-        width: 1024px;
+        width: 700px;
         height: 600px;
         padding-top: 80px;
         
@@ -1129,7 +1129,7 @@ video::-webkit-media-controls {
       .carousel-images-holder {
 
         position: absolute;
-        width: 1024px;
+        width: 700px;
         height: 600px;
         top: 14px;
         left: 46px;

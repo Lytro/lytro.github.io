@@ -423,7 +423,7 @@ video::-webkit-media-controls {
   #intro-video #video-wrap {
     position: absolute;
     z-index: 0;
-    min-width: 730px; }
+    min-width: 640px; }
   #intro-video #explore-btn {
     position: absolute;
     bottom: -94px;
@@ -652,7 +652,7 @@ video::-webkit-media-controls {
         position: relative;
         margin: 0 auto;
         margin-top: 5px;
-        max-width: 820px;
+        max-width: 700px;
         height: auto;
         font-family: 'Gotham SSm A', 'Gotham SSm B';
         font-weight: 300;
@@ -698,7 +698,7 @@ video::-webkit-media-controls {
 
 .static-page-content-wrapper {
   overflow: hidden;
-  min-width: 730px;
+  min-width: 640px;
   background-repeat: no-repeat;
   /*------end------*/
   /*---------------*/
@@ -717,8 +717,8 @@ video::-webkit-media-controls {
   /*---------------*/ }
   .static-page-content-wrapper .software-page-content {
     position: relative;
-    min-width: 730px;
-    max-width: 1600px;
+    min-width: 640px;
+    max-width: 1200px;
     margin: 0 auto;
     /*border:1px solid red;*/
     /*z-index: 13;*/
@@ -765,7 +765,7 @@ video::-webkit-media-controls {
       color: rgba(255, 255, 255, 0.75);
       margin: 0 auto;
       margin-top: 20px;
-      width: 820px; }
+      width: 640px; }
     .static-page-content-wrapper .software-page-content #download-btn-holder {
       width: 235px;
       height: 40px;
@@ -804,7 +804,7 @@ video::-webkit-media-controls {
       position: relative;
       margin: 0 auto;
       margin-top: 45px;
-      width: 1024px;
+      width: 740px;
       height: 600px;
       /*border: 1px solid red;*/ }
       .static-page-content-wrapper .software-page-content #carousel-top a, .static-page-content-wrapper .software-page-content #carousel-devices a {
@@ -812,13 +812,13 @@ video::-webkit-media-controls {
       .static-page-content-wrapper .software-page-content #carousel-top #web, .static-page-content-wrapper .software-page-content #carousel-devices #web {
         background-image: url(../images/page-software/web-hero.jpg);
         background-size: 1024px 600px;
-        width: 1024px;
+        width: 700px;
         height: 600px;
         padding-top: 80px; }
       .static-page-content-wrapper .software-page-content #carousel-top #kernel-source, .static-page-content-wrapper .software-page-content #carousel-devices #kernel-source {
         background-image: url(../images/page-software/firmware-hero.jpg);
         background-size: 1024px 600px;
-        width: 1024px;
+        width: 700px;
         height: 600px;
         padding-top: 80px; }
       .static-page-content-wrapper .software-page-content #carousel-top .arrow-left, .static-page-content-wrapper .software-page-content #carousel-devices .arrow-left {
@@ -850,7 +850,7 @@ video::-webkit-media-controls {
           /*background-position:71px;*/ }
       .static-page-content-wrapper .software-page-content #carousel-top .carousel-images-holder, .static-page-content-wrapper .software-page-content #carousel-devices .carousel-images-holder {
         position: absolute;
-        width: 1024px;
+        width: 700px;
         height: 600px;
         top: 14px;
         left: 46px;
@@ -961,8 +961,8 @@ video::-webkit-media-controls {
   background-color: #131313;
   position: relative; }
   #footer-reviews-wrapper #footer-reviews {
-    min-width: 730px;
-    max-width: 1600px;
+    min-width: 640px;
+    max-width: 1200px;
     margin: 0 auto; }
     #footer-reviews-wrapper #footer-reviews .review-item {
       float: left;
@@ -987,7 +987,7 @@ video::-webkit-media-controls {
   #footer-wrapper footer {
     position: relative;
     min-width: 1100px;
-    max-width: 1600px;
+    max-width: 1200px;
     height: 210px;
     margin: 0 auto;
     background-image: url(../images/footer/footer-bg.jpg);
